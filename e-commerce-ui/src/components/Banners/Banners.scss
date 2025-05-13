@@ -1,0 +1,62 @@
+.banner-area {
+    height: auto;
+    .banners {
+        padding-left: 30px;
+        padding-right: 30px;
+        .banner {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 640px;
+            width: 360px;
+            .img {
+                img {
+                    width: 310px;
+                    height: 310px;
+                }
+            }
+            .btn {
+                border-radius: 9px;
+                display: flex;
+                border: 1px solid black;
+                width: 191px;
+                height: 56px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.6s;
+            }
+            .btn:hover {
+                color: rgb(14, 178, 178);
+                border: 1px solid rgb(14, 178, 178);
+            }
+            .content {
+                .title {
+                    margin-bottom: 10px;
+                    color: black;
+                    transition: all 0.6s;
+                }
+                .desc {
+                    color: gray;
+                    transition: all 0.6s;
+                }
+                .title:hover {
+                    color: rgb(14, 178, 178);
+                }
+                .desc:hover {
+                    color: rgb(14, 178, 178);
+                }
+            }
+        }
+    }
+}
+
+.banners-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
