@@ -19,7 +19,7 @@ const Banners = () => {
                     </div>
                     <button className='btn'>Shop Now</button>
                 </div>
-                <div className="banner">
+                <div className="banner" style={{ backgroundColor: "#f9f9f9" }}>
                     <div className="img">
                         <img src={banner2} />
                     </div>
@@ -29,7 +29,7 @@ const Banners = () => {
                     </div>
                     <button className='btn'>Shop Now</button>
                 </div>
-                <div className="banner">
+                <div className="banner" style={{ backgroundColor: "#EAEAEA" }}>
                     <div className="img">
                         <img src={banner3} />
                     </div>
@@ -39,18 +39,18 @@ const Banners = () => {
                     </div>
                     <button className='btn'>Shop Now</button>
                 </div>
-                <div className="banner">
+                <div className="banner" style={{ backgroundColor: "#2C2C2C", color: "white" }}>
                     <div className="img">
                         <img src={banner4} />
                     </div>
                     <div className="content">
-                        <p className='title font-semibold text-2xl'>Popular Products</p>
+                        <p className='title font-semibold text-2xl' style={{ color: "white" }}>Popular Products</p>
                         <span className='desc'>iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.</span>
                     </div>
                     <button className='btn'>Shop Now</button>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

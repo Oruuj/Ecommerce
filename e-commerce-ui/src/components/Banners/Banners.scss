@@ -1,17 +1,24 @@
 .banner-area {
     height: auto;
     .banners {
-        padding-left: 30px;
-        padding-right: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
         .banner {
+            padding: 30px 30px 30px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             gap: 20px;
             height: 640px;
-            width: 360px;
+            width: 100%;
             .img {
+                width: 290px;
+                height: 310px;
                 img {
-                    width: 310px;
+                    width: 290px;
                     height: 310px;
                 }
             }
@@ -50,13 +57,13 @@
         }
     }
 }
-
-.banners-wrapper {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-        display: none;
+@media (width <= 80rem) {
+    .banners {
+        flex-direction: column;
+        .banner {
+            .content {
+                width: 60%;
+            }
+        }
     }
 }

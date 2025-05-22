@@ -3,6 +3,7 @@ import './Category.scss';
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import phone from '../../assets/phones.png';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Category = () => {
     const scrollRef = useRef(null);
@@ -25,44 +26,104 @@ const Category = () => {
                         <IoIosArrowForward className='arrow' onClick={() => scroll('right')} />
                     </div>
                 </div>
-                <div className="categories-wrapper" ref={scrollRef}>
-                    <div className="categories grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 items-center">
-                        <div className="card">
-                            <img src={phone} />
-                            <span>Phones</span>
+                <AnimatePresence>
+                    <motion.div className="categories-wrapper" initial={{ x: 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 300, opacity: 0 }} transition={{ type: "tween", duration: 0.3 }} ref={scrollRef}>
+                        <div className="categories grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 items-center">
+                            <motion.div
+                                className="card"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <img src={phone} />
+                                <span>Phones</span>
+                            </motion.div>
+
+                            <motion.div
+                                className="card"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <img src={phone} />
+                                <span>Phones</span>
+                            </motion.div>
+
+                            <motion.div
+                                className="card"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <img src={phone} />
+                                <span>Phones</span>
+                            </motion.div>
+                            <motion.div
+                                className="card"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <img src={phone} />
+                                <span>Phones</span>
+                            </motion.div>
+                            <motion.div
+                                className="card"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <img src={phone} />
+                                <span>Phones</span>
+                            </motion.div>
+                            <motion.div
+                                className="card"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <img src={phone} />
+                                <span>Phones</span>
+                            </motion.div>
+                            <motion.div
+                                className="card"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <img src={phone} />
+                                <span>Phones</span>
+                            </motion.div>
+                            <motion.div
+                                className="card"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <img src={phone} />
+                                <span>Phones</span>
+                            </motion.div>
+                            <motion.div
+                                className="card"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <img src={phone} />
+                                <span>Phones</span>
+                            </motion.div>
                         </div>
-                        <div className="card">
-                            <img src={phone} />
-                            <span>Phones</span>
-                        </div>
-                        <div className="card">
-                            <img src={phone} />
-                            <span>Phones</span>
-                        </div>
-                        <div className="card">
-                            <img src={phone} />
-                            <span>Phones</span>
-                        </div>
-                        <div className="card">
-                            <img src={phone} />
-                            <span>Phones</span>
-                        </div>
-                        <div className="card">
-                            <img src={phone} />
-                            <span>Phones</span>
-                        </div>
-                        <div className="card">
-                            <img src={phone} />
-                            <span>Phones</span>
-                        </div><div className="card">
-                            <img src={phone} />
-                            <span>Phones</span>
-                        </div><div className="card">
-                            <img src={phone} />
-                            <span>Phones</span>
-                        </div>
-                    </div>
-                </div>
+                    </motion.div>
+                </AnimatePresence>
             </div>
         </div>
     )
