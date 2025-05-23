@@ -42,6 +42,21 @@
                 height: 40px;
             }
         }
+        .user-menu {
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            justify-content: space-around;
+            position: absolute;
+            width: 160px;
+            height: 60px;
+            background-color: white;
+            box-shadow:
+                rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+                rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            border-radius: 20px;
+            transform: translate(-160px, 10px);
+        }
         @media (width <= 80rem) {
             margin-top: 16px;
             margin-bottom: 16px;

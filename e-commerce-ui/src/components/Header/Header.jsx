@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = ({ page }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuUser, setmenuUser] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -62,8 +63,22 @@ const Header = ({ page }) => {
           <div className="icons items-center gap-4 text-2xl ml-6 hidden xl:flex">
             <CiHeart className="cursor-pointer" onClick={() => navigate("/wishlist")} />
             <RiShoppingCart2Line className="cursor-pointer" onClick={() => navigate("/ShoppingCart")} />
-            <FiUser className="cursor-pointer" />
+            <FiUser className="cursor-pointer" onClick={() => setmenuUser(prev => !prev)} />
           </div>
+          <AnimatePresence>
+            {menuUser && (
+              <motion.div className="user-menu absolute bg-white border rounded-md shadow-md p-4 z-50"
+
+                initial={{ x: 1000, y: 40, opacity: 0 }}
+                animate={{ x: 1000, y: 50, opacity: 1 }}
+                exit={{ x: 1000, y: 40, opacity: 0 }}
+                transition={{ type: "tween", duration: 0.3 }}
+              >
+                <a href='/account' className="block cursor-pointer mb-2">Login or register</a>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
         </div>
       </div>
 
@@ -74,7 +89,7 @@ const Header = ({ page }) => {
             initial={{ x: 300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 300, opacity: 0 }}
-            transition={{ type: "tween", duration: 0.6 }}
+            transition={{ type: "tween", duration: 0.3 }}
           >
             <IoMdClose className="text-3xl mb-4 cursor-pointer" onClick={() => setMenuOpen(false)} />
             <div className="links gap-6 text-lg flex flex-col mt-5">

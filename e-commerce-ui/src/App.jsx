@@ -4,6 +4,8 @@ import HomePage from './pages/Home/HomePage';
 import ShopPage from './pages/Shop/ShopPage';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import Wishlist from './pages/wishlist/Wishlist';
+import Account from './pages/Account/Account';
+
 import './App.css'
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
           <Route path="/Shop" element={<ShopPage />} />
           <Route path="/ShoppingCart" element={<ShoppingCart />} />
           <Route path="/Wishlist" element={<Wishlist />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </BrowserRouter>
     </>
