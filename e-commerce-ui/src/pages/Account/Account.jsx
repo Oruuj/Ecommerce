@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/footer';
 import './Account.scss';
@@ -6,6 +6,25 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Account = () => {
     const [isLogin, SetisLogin] = useState(true);
+
+    const [isMobile, setIsMobile] = useState(false);
+    const [isMobileSmall, setIsMobileSmall] = useState(true);
+    const [isMobileSmallByWidthHeight, setIsMobileSmallByWidthHeight] = useState(false);
+
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1024);
+            setIsMobileSmall(window.innerWidth < 768);
+            setIsMobileSmallByWidthHeight(window.innerWidth < 768 && window.innerHeight < 690);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <>
             <header>
@@ -16,9 +35,13 @@ const Account = () => {
                     <div className="account-container">
                         <AnimatePresence>
                             {isLogin ? (
-                                <motion.div className="title absolute"
+                                <motion.div className="title reg absolute"
                                     initial={{ x: 100, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1 }}
+                                    animate={{
+                                        x: isMobileSmall ? -15 : isMobile ? 30 : 0,
+                                        y: isMobileSmallByWidthHeight ? 287 : isMobileSmall ? 475 : 0,
+                                        opacity: 1
+                                    }}
                                     exit={{ x: 100, opacity: 0 }}
                                     transition={{ type: "tween", duration: 0.6 }}
                                 >
@@ -26,9 +49,9 @@ const Account = () => {
                                     <button onClick={() => SetisLogin(false)}>Register</button>
                                 </motion.div>
                             ) : (
-                                <motion.div className="title absolute"
-                                    initial={{ x: -400, opacity: 0 }}
-                                    animate={{ x: -525, opacity: 1 }}
+                                <motion.div className="title login absolute"
+                                    initial={{ x: isMobileSmall ? 0 : isMobile ? -300 : -350, opacity: 0 }}
+                                    animate={{ x: isMobileSmall ? 165 : isMobile ? -90 : -480, y: isMobileSmallByWidthHeight ? -42 : 0, opacity: 1 }}
                                     exit={{ x: -400, opacity: 0 }}
                                     transition={{ type: "tween", duration: 0.6 }}
                                 >

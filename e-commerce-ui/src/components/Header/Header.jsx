@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './Header.scss';
+import React, { useState } from "react";
+import "./Header.scss";
 import { CiHeart } from "react-icons/ci";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { FiUser } from "react-icons/fi";
@@ -7,11 +7,14 @@ import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineMenu } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Header = ({ page }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuUser, setmenuUser] = useState(false);
+  const [menuUserMobile, setmenuUserMobile] = useState(false);
+
   const navigate = useNavigate();
 
   return (
@@ -34,51 +37,69 @@ const Header = ({ page }) => {
           <div className="links gap-6 text-lg hidden xl:flex">
             {page === "Home" ? (
               <>
-                <a href="/" className="active">Home</a>
-                <a href="/Shop">Shop</a>
-                <a href="#">About</a>
-                <a href="#">Contact Us</a>
+                <Link to="/" className="active">
+                  Home
+                </Link>
+                <Link to="/Shop">Shop</Link>
+                <Link to="#">About</Link>
+                <Link to="#">Contact Us</Link>
               </>
             ) : page === "Shop" ? (
               <>
-                <a href="/">Home</a>
-                <a href="/Shop" className="active">Shop</a>
-                <a href="#">About</a>
-                <a href="#">Contact Us</a>
+                <Link to="/">Home</Link>
+                <Link to="/Shop" className="active">
+                  Shop
+                </Link>
+                <Link to="#">About</Link>
+                <Link to="#">Contact Us</Link>
               </>
             ) : (
               <>
-                <a href="/">Home</a>
-                <a href="/Shop">Shop</a>
-                <a href="#">About</a>
-                <a href="#">Contact Us</a>
+                <Link to="/">Home</Link>
+                <Link to="/Shop">Shop</Link>
+                <Link to="#">About</Link>
+                <Link to="#">Contact Us</Link>
               </>
             )}
           </div>
 
-          <div className="menu flex xl:hidden" onClick={() => setMenuOpen(true)}>
+          <div
+            className="menu flex xl:hidden"
+            onClick={() => setMenuOpen(true)}
+          >
             <MdOutlineMenu className="menu-icon text-3xl" />
           </div>
 
           <div className="icons items-center gap-4 text-2xl ml-6 hidden xl:flex">
-            <CiHeart className="cursor-pointer" onClick={() => navigate("/wishlist")} />
-            <RiShoppingCart2Line className="cursor-pointer" onClick={() => navigate("/ShoppingCart")} />
-            <FiUser className="cursor-pointer" onClick={() => setmenuUser(prev => !prev)} />
+            <CiHeart
+              className="cursor-pointer"
+              onClick={() => navigate("/wishlist")}
+            />
+            <RiShoppingCart2Line
+              className="cursor-pointer"
+              onClick={() => navigate("/ShoppingCart")}
+            />
+            <FiUser
+              className="cursor-pointer"
+              onClick={() => setmenuUser((a) => !a)}
+            />
           </div>
           <AnimatePresence>
             {menuUser && (
-              <motion.div className="user-menu absolute bg-white border rounded-md shadow-md p-4 z-50"
-
+              <motion.div
+                className="user-menu absolute bg-white border rounded-md shadow-md p-4 z-50"
                 initial={{ x: 1000, y: 40, opacity: 0 }}
                 animate={{ x: 1000, y: 50, opacity: 1 }}
                 exit={{ x: 1000, y: 40, opacity: 0 }}
                 transition={{ type: "tween", duration: 0.3 }}
               >
-                <a href='/account' className="block cursor-pointer mb-2">Login or register</a>
+                <Link to="/account" className="block cursor-pointer mb-2">
+                  Login or register
+                </Link>
+                <Link to="/Profile">Profile</Link>
               </motion.div>
             )}
           </AnimatePresence>
-
         </div>
       </div>
 
@@ -91,43 +112,74 @@ const Header = ({ page }) => {
             exit={{ x: 300, opacity: 0 }}
             transition={{ type: "tween", duration: 0.3 }}
           >
-            <IoMdClose className="text-3xl mb-4 cursor-pointer" onClick={() => setMenuOpen(false)} />
+            <IoMdClose
+              className="text-3xl mb-4 cursor-pointer"
+              onClick={() => setMenuOpen(false)}
+            />
             <div className="links gap-6 text-lg flex flex-col mt-5">
-              <div className="links gap-6 text-lg flex flex-col mt-5">
-                {page === "Home" ? (
-                  <>
-                    <a href="/" className="active">Home</a>
-                    <a href="/Shop">Shop</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact Us</a>
-                  </>
-                ) : page === "Shop" ? (
-                  <>
-                    <a href="/">Home</a>
-                    <a href="/Shop" className="active">Shop</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact Us</a>
-                  </>
-                ) : (
-                  <>
-                    <a href="/">Home</a>
-                    <a href="/Shop">Shop</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact Us</a>
-                  </>
-                )}
-              </div>
+              {page === "Home" ? (
+                <>
+                  <Link to="/" className="active">
+                    Home
+                  </Link>
+                  <Link to="/Shop">Shop</Link>
+                  <Link to="#">About</Link>
+                  <Link to="#">Contact Us</Link>
+                </>
+              ) : page === "Shop" ? (
+                <>
+                  <Link to="/">Home</Link>
+                  <Link to="/Shop" className="active">
+                    Shop
+                  </Link>
+                  <Link to="#">About</Link>
+                  <Link to="#">Contact Us</Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/">Home</Link>
+                  <Link to="/Shop">Shop</Link>
+                  <Link to="#">About</Link>
+                  <Link to="#">Contact Us</Link>
+                </>
+              )}
             </div>
+
             <div className="icons-mobile flex gap-4 text-2xl mt-auto">
-              <CiHeart className="cursor-pointer" onClick={() => navigate("/wishlist")} />
-              <RiShoppingCart2Line className="cursor-pointer" onClick={() => navigate("/ShoppingCart")} />
-              <FiUser className="cursor-pointer" />
+              <CiHeart
+                className="cursor-pointer"
+                onClick={() => navigate("/wishlist")}
+              />
+              <RiShoppingCart2Line
+                className="cursor-pointer"
+                onClick={() => navigate("/ShoppingCart")}
+              />
+              <FiUser
+                className="cursor-pointer"
+                onClick={() => setmenuUserMobile((a) => !a)}
+              />
             </div>
+            <AnimatePresence>
+              {menuUserMobile && (
+                <motion.div
+                  className="user-menu absolute bg-white border rounded-md shadow-md p-4 z-50"
+                  initial={{ x: 25, y: 600, opacity: 0 }}
+                  animate={{ x: 25, y: 477, opacity: 1 }}
+                  exit={{ x: 25, y: 600, opacity: 0 }}
+                  transition={{ type: "tween", duration: 0.3 }}
+                >
+                  <Link to="/account" className="block cursor-pointer mb-2">
+                    Login or register
+                  </Link>
+                  <Link to="/Profile">Profile</Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>
     </>
   );
-}
+};
 
-export default Header
+export default Header;

@@ -81,4 +81,30 @@
             }
         }
     }
+    @media (width <= 80rem) {
+    }
+    @media (width <= 64rem) {
+        .account-container {
+            width: 600px;
+            .title {
+                font-size: 20px;
+            }
+        }
+    }
+    @media (width <= 48rem) {
+        .account-container {
+            width: 400px;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+            .title {
+                height: 200px;
+                font-size: 20px;
+            }
+            .login {
+            }
+            .reg {
+            }
+        }
+    }
 }
