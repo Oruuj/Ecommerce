@@ -41,8 +41,7 @@ const Header = ({ page }) => {
                   Home
                 </Link>
                 <Link to="/Shop">Shop</Link>
-                <Link to="#">About</Link>
-                <Link to="#">Contact Us</Link>
+                <Link to="/contact">Contact Us</Link>
               </>
             ) : page === "Shop" ? (
               <>
@@ -50,15 +49,21 @@ const Header = ({ page }) => {
                 <Link to="/Shop" className="active">
                   Shop
                 </Link>
-                <Link to="#">About</Link>
-                <Link to="#">Contact Us</Link>
+                <Link to="/contact">Contact Us</Link>
+              </>
+            ) : page === "contact" ? (
+              <>
+                <Link to="/">Home</Link>
+                <Link to="/Shop">Shop</Link>
+                <Link to="/contact" className="active">
+                  Contact Us
+                </Link>
               </>
             ) : (
               <>
                 <Link to="/">Home</Link>
                 <Link to="/Shop">Shop</Link>
-                <Link to="#">About</Link>
-                <Link to="#">Contact Us</Link>
+                <Link to="/contact">Contact Us</Link>
               </>
             )}
           </div>
@@ -123,8 +128,7 @@ const Header = ({ page }) => {
                     Home
                   </Link>
                   <Link to="/Shop">Shop</Link>
-                  <Link to="#">About</Link>
-                  <Link to="#">Contact Us</Link>
+                  <Link to="contact">Contact Us</Link>
                 </>
               ) : page === "Shop" ? (
                 <>
@@ -132,15 +136,13 @@ const Header = ({ page }) => {
                   <Link to="/Shop" className="active">
                     Shop
                   </Link>
-                  <Link to="#">About</Link>
-                  <Link to="#">Contact Us</Link>
+                  <Link to="/contact">Contact Us</Link>
                 </>
               ) : (
                 <>
                   <Link to="/">Home</Link>
                   <Link to="/Shop">Shop</Link>
-                  <Link to="#">About</Link>
-                  <Link to="#">Contact Us</Link>
+                  <Link to="/contact">Contact Us</Link>
                 </>
               )}
             </div>

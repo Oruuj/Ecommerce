@@ -8,6 +8,7 @@ import Wishlist from "./pages/wishlist/Wishlist";
 import Account from "./pages/Account/Account";
 import Detail from "./pages/Detail/Detail";
 import Profile from "./pages/Profile/Profile";
+import Contact from "./pages/Contact/contact";
 import "./App.css";
 
 function AnimatedRoutes() {
@@ -128,6 +129,21 @@ function AnimatedRoutes() {
               style={{ minHeight: "100vh" }}
             >
               <Profile />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+              style={{ minHeight: "100vh" }}
+            >
+              <Contact />
             </motion.div>
           }
         />
