@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Oruj\\Documents\\Repositories\\E-commerce\\Ecommerce-API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{894E71FB-182A-42E5-B1F5-3BF1C45E36B0}|Repository\\Repository.csproj|c:\\users\\oruj\\documents\\repositories\\e-commerce\\ecommerce-api\\repository\\migrations\\20250606135455_appuserentitycreated.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{894E71FB-182A-42E5-B1F5-3BF1C45E36B0}|Repository\\Repository.csproj|solutionrelative:repository\\migrations\\20250606135455_appuserentitycreated.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250606135455_AppUserEntityCreated.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Repositories\\E-commerce\\Ecommerce-API\\Repository\\Migrations\\20250606135455_AppUserEntityCreated.cs",
+              "RelativeDocumentMoniker": "Repository\\Migrations\\20250606135455_AppUserEntityCreated.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Repositories\\E-commerce\\Ecommerce-API\\Repository\\Migrations\\20250606135455_AppUserEntityCreated.cs",
+              "RelativeToolTip": "Repository\\Migrations\\20250606135455_AppUserEntityCreated.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T13:54:56.025Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
