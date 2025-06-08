@@ -24,9 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Admin\" />
-    <Folder Include="Controllers\UI\" />
-    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\media\" />
   </ItemGroup>
 
 </Project>

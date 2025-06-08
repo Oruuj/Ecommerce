@@ -34,7 +34,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 
 builder.Services.AddRepositoryLayer();
 builder.Services.AddServiceLayer();
-
+var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+builder.Services.AddAutoMapper(assemblies);
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 var app = builder.Build();

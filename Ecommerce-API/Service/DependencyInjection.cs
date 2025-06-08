@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Repository.Repositories;
 using Repository.Repositories.Interfaces;
+using Service.Services;
+using Service.Services.Interfaces;
 
 namespace Repository
 {
@@ -8,7 +10,7 @@ namespace Repository
     {
         public static IServiceCollection AddServiceLayer(this IServiceCollection services)
         {
-            //services.AddScoped<IGroupRepository, GroupRepository>();
+            services.AddScoped<IProductService, ProductService>();
             return services;
         }
     }

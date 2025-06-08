@@ -173,3 +173,4 @@ C:\Users\Oruj\Documents\Repositories\E-commerce\Ecommerce-API\Core\obj\Debug\net
 C:\Users\Oruj\Documents\Repositories\E-commerce\Ecommerce-API\Core\obj\Debug\net8.0\Core.pdb
 C:\Users\Oruj\Documents\Repositories\E-commerce\Ecommerce-API\Core\obj\Debug\net8.0\Core.genruntimeconfig.cache
 C:\Users\Oruj\Documents\Repositories\E-commerce\Ecommerce-API\Core\obj\Debug\net8.0\ref\Core.dll
+C:\Users\Oruj\Documents\Repositories\E-commerce\Ecommerce-API\Core\bin\Debug\net8.0\AutoMapper.dll

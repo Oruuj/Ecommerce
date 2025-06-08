@@ -12,5 +12,8 @@ namespace Repository.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<ProductFeature> ProductFeatures { get; set; }
+        public DbSet<ProductDiscount> ProductDiscounts { get; set; }
+        public DbSet<Discount> Discounts { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
     }
 }

@@ -1,0 +1,141 @@
+2025-06-08 20:33:29.690 +04:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-06-08 20:33:29.727 +04:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-06-08 20:33:29.756 +04:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-06-08 20:33:48.543 +04:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-06-08 20:33:48.577 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-06-08 20:33:48.578 +04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-06-08 20:33:48.579 +04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-06-08 20:33:48.591 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-06-08 20:33:48.600 +04:00 [INF] Applying migration '20250608163337_ProducDiscoundProductImagesCreated'.
+2025-06-08 20:33:48.664 +04:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] ADD [CreatedDate] datetime2 NOT NULL DEFAULT '0001-01-01T00:00:00.0000000';
+2025-06-08 20:33:48.667 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] ADD [Description] nvarchar(max) NOT NULL DEFAULT N'';
+2025-06-08 20:33:48.668 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] ADD [Price] real NOT NULL DEFAULT CAST(0 AS real);
+2025-06-08 20:33:48.676 +04:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Discounts] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Percentage] real NOT NULL,
+    CONSTRAINT [PK_Discounts] PRIMARY KEY ([Id])
+);
+2025-06-08 20:33:48.679 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ProductImages] (
+    [Id] int NOT NULL IDENTITY,
+    [MainImage] bit NOT NULL,
+    [Image] nvarchar(max) NOT NULL,
+    [ProductId] int NOT NULL,
+    CONSTRAINT [PK_ProductImages] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ProductImages_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE CASCADE
+);
+2025-06-08 20:33:48.681 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ProductDiscounts] (
+    [Id] int NOT NULL IDENTITY,
+    [ProductId] int NOT NULL,
+    [DiscountId] int NOT NULL,
+    CONSTRAINT [PK_ProductDiscounts] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ProductDiscounts_Discounts_DiscountId] FOREIGN KEY ([DiscountId]) REFERENCES [Discounts] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_ProductDiscounts_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE CASCADE
+);
+2025-06-08 20:33:48.684 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_ProductDiscounts_DiscountId] ON [ProductDiscounts] ([DiscountId]);
+2025-06-08 20:33:48.684 +04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_ProductDiscounts_ProductId] ON [ProductDiscounts] ([ProductId]);
+2025-06-08 20:33:48.685 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_ProductImages_ProductId] ON [ProductImages] ([ProductId]);
+2025-06-08 20:33:48.694 +04:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250608163337_ProducDiscoundProductImagesCreated', N'8.0.16');
+2025-06-08 20:34:44.135 +04:00 [INF] User profile is available. Using 'C:\Users\Oruj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-08 20:34:44.169 +04:00 [INF] Creating key {434f59ed-9783-4fd5-9ccb-a86b8e6a2d99} with creation date 2025-06-08 16:34:44Z, activation date 2025-06-08 16:34:44Z, and expiration date 2025-09-06 16:34:44Z.
+2025-06-08 20:34:44.190 +04:00 [INF] Writing data to file 'C:\Users\Oruj\AppData\Local\ASP.NET\DataProtection-Keys\key-434f59ed-9783-4fd5-9ccb-a86b8e6a2d99.xml'.
+2025-06-08 20:34:44.315 +04:00 [INF] Now listening on: https://localhost:7239
+2025-06-08 20:34:44.316 +04:00 [INF] Now listening on: http://localhost:5062
+2025-06-08 20:34:44.366 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-08 20:34:44.367 +04:00 [INF] Hosting environment: Development
+2025-06-08 20:34:44.368 +04:00 [INF] Content root path: C:\Users\Oruj\Documents\Repositories\E-commerce\Ecommerce-API\Core
+2025-06-08 20:34:44.832 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger - null null
+2025-06-08 20:34:44.934 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger - 301 0 null 102.7944ms
+2025-06-08 20:34:44.938 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/index.html - null null
+2025-06-08 20:34:44.979 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/index.html - 200 null text/html;charset=utf-8 40.7713ms
+2025-06-08 20:34:44.994 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/swagger-ui.css - null null
+2025-06-08 20:34:44.994 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/index.css - null null
+2025-06-08 20:34:44.994 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/swagger-ui-bundle.js - null null
+2025-06-08 20:34:44.994 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/swagger-ui-standalone-preset.js - null null
+2025-06-08 20:34:44.994 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/index.js - null null
+2025-06-08 20:34:44.994 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-08 20:34:45.002 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/_vs/browserLink - null null
+2025-06-08 20:34:45.004 +04:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-06-08 20:34:45.005 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/index.js - 200 null application/javascript;charset=utf-8 10.5621ms
+2025-06-08 20:34:45.009 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/_framework/aspnetcore-browser-refresh.js - 200 16493 application/javascript; charset=utf-8 14.438ms
+2025-06-08 20:34:45.009 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/index.css - 200 202 text/css 15.4975ms
+2025-06-08 20:34:45.011 +04:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-06-08 20:34:45.014 +04:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-06-08 20:34:45.021 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/swagger-ui.css - 200 154949 text/css 27.1833ms
+2025-06-08 20:34:45.021 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/swagger-ui-standalone-preset.js - 200 229223 text/javascript 27.1133ms
+2025-06-08 20:34:45.030 +04:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-06-08 20:34:45.031 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/swagger-ui-bundle.js - 200 1484234 text/javascript 36.7985ms
+2025-06-08 20:34:45.100 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/_vs/browserLink - 200 null text/javascript; charset=UTF-8 98.3985ms
+2025-06-08 20:34:45.148 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/v1/swagger.json - null null
+2025-06-08 20:34:45.155 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.3854ms
+2025-06-08 20:34:45.163 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/favicon-32x32.png - null null
+2025-06-08 20:34:45.165 +04:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-06-08 20:34:45.166 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/favicon-32x32.png - 200 628 image/png 3.4959ms
+2025-06-08 20:34:51.086 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/api/Product/UI/GetAll - null null
+2025-06-08 20:34:51.094 +04:00 [INF] Executing endpoint 'Core.Controllers.UI.ProductController.GetAll (Core)'
+2025-06-08 20:34:51.123 +04:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Core.Controllers.UI.ProductController (Core).
+2025-06-08 20:34:51.130 +04:00 [INF] Executed action Core.Controllers.UI.ProductController.GetAll (Core) in 2.4195ms
+2025-06-08 20:34:51.133 +04:00 [INF] Executed endpoint 'Core.Controllers.UI.ProductController.GetAll (Core)'
+2025-06-08 20:34:51.136 +04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Service.Services.Interfaces.IProductService' while attempting to activate 'Core.Controllers.UI.ProductController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-08 20:34:51.149 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/api/Product/UI/GetAll - 500 null text/plain; charset=utf-8 63.3181ms
+2025-06-08 20:37:12.755 +04:00 [INF] User profile is available. Using 'C:\Users\Oruj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-08 20:37:12.841 +04:00 [INF] Now listening on: https://localhost:7239
+2025-06-08 20:37:12.843 +04:00 [INF] Now listening on: http://localhost:5062
+2025-06-08 20:37:12.885 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-08 20:37:12.886 +04:00 [INF] Hosting environment: Development
+2025-06-08 20:37:12.887 +04:00 [INF] Content root path: C:\Users\Oruj\Documents\Repositories\E-commerce\Ecommerce-API\Core
+2025-06-08 20:37:13.481 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/_vs/browserLink - null null
+2025-06-08 20:37:13.481 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-08 20:37:13.491 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/_framework/aspnetcore-browser-refresh.js - 200 16493 application/javascript; charset=utf-8 10.8564ms
+2025-06-08 20:37:13.509 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.5803ms
+2025-06-08 20:37:13.587 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/swagger/v1/swagger.json - null null
+2025-06-08 20:37:13.609 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.3375ms
+2025-06-08 20:37:16.812 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7239/api/Product/UI/GetAll - null null
+2025-06-08 20:37:16.819 +04:00 [INF] Executing endpoint 'Core.Controllers.UI.ProductController.GetAll (Core)'
+2025-06-08 20:37:16.830 +04:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Core.Controllers.UI.ProductController (Core).
+2025-06-08 20:37:17.687 +04:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[ProductTypeId]
+FROM [Products] AS [p]
+2025-06-08 20:37:17.710 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Service.DTOs.ProductDTOs.ProductDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-08 20:37:17.718 +04:00 [INF] Executed action Core.Controllers.UI.ProductController.GetAll (Core) in 885.0476ms
+2025-06-08 20:37:17.720 +04:00 [INF] Executed endpoint 'Core.Controllers.UI.ProductController.GetAll (Core)'
+2025-06-08 20:37:17.724 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7239/api/Product/UI/GetAll - 200 null application/json; charset=utf-8 911.289ms
