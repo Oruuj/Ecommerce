@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState ,useEffect  } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import HomePage from "./pages/Home/HomePage";
@@ -10,7 +10,7 @@ import Detail from "./pages/Detail/Detail";
 import Profile from "./pages/Profile/Profile";
 import Contact from "./pages/Contact/contact";
 import "./App.css";
-
+import Lenis from "@studio-freight/lenis";
 function AnimatedRoutes() {
   const location = useLocation();
 
@@ -153,6 +153,21 @@ function AnimatedRoutes() {
 }
 
 function App() {
+
+  useEffect(() => {
+    const lenis = new Lenis({ smooth: true });
+
+    const raf = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
   return (
     <BrowserRouter>
       <AnimatedRoutes />
