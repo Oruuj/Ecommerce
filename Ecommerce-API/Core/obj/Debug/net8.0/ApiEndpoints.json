@@ -33,8 +33,18 @@
         "IsRequired": false
       },
       {
+        "Name": "ProductDiscounts",
+        "Type": "System.Collections.Generic.List\u00601[[Service.DTOs.ProductDiscountDTOs.ProductDiscountDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
         "Name": "Images",
         "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProductTypeId",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
@@ -75,6 +85,11 @@
         "IsRequired": false
       },
       {
+        "Name": "CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
         "Name": "Price",
         "Type": "System.Single",
         "IsRequired": false
@@ -85,13 +100,23 @@
         "IsRequired": false
       },
       {
-        "Name": "CategoryId",
-        "Type": "System.Int32",
+        "Name": "Features",
+        "Type": "System.Collections.Generic.List\u00601[[Service.DTOs.ProductFeature.ProductFeatureDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       },
       {
-        "Name": "Features",
-        "Type": "System.Collections.Generic.List\u00601[[Service.DTOs.ProductFeature.ProductFeatureDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Name": "ProductDiscounts",
+        "Type": "System.Collections.Generic.List\u00601[[Service.DTOs.ProductDiscountDTOs.ProductDiscountDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProductTypeId",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

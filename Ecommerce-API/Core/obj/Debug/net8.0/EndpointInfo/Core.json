@@ -92,12 +92,22 @@
                       "$ref": "#/components/schemas/ProductFeatureDTO"
                     }
                   },
+                  "ProductDiscounts": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ProductDiscountDTO"
+                    }
+                  },
                   "Images": {
                     "type": "array",
                     "items": {
                       "type": "string",
                       "format": "binary"
                     }
+                  },
+                  "ProductTypeId": {
+                    "type": "integer",
+                    "format": "int32"
                   }
                 }
               },
@@ -117,7 +127,13 @@
                 "Features": {
                   "style": "form"
                 },
+                "ProductDiscounts": {
+                  "style": "form"
+                },
                 "Images": {
+                  "style": "form"
+                },
+                "ProductTypeId": {
                   "style": "form"
                 }
               }
@@ -149,6 +165,10 @@
                   "Name": {
                     "type": "string"
                   },
+                  "CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
                   "Price": {
                     "type": "number",
                     "format": "float"
@@ -156,15 +176,28 @@
                   "Description": {
                     "type": "string"
                   },
-                  "CategoryId": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
                   "Features": {
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/ProductFeatureDTO"
                     }
+                  },
+                  "ProductDiscounts": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ProductDiscountDTO"
+                    }
+                  },
+                  "Images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  },
+                  "ProductTypeId": {
+                    "type": "integer",
+                    "format": "int32"
                   }
                 }
               },
@@ -175,16 +208,25 @@
                 "Name": {
                   "style": "form"
                 },
+                "CategoryId": {
+                  "style": "form"
+                },
                 "Price": {
                   "style": "form"
                 },
                 "Description": {
                   "style": "form"
                 },
-                "CategoryId": {
+                "Features": {
                   "style": "form"
                 },
-                "Features": {
+                "ProductDiscounts": {
+                  "style": "form"
+                },
+                "Images": {
+                  "style": "form"
+                },
+                "ProductTypeId": {
                   "style": "form"
                 }
               }
@@ -201,6 +243,24 @@
   },
   "components": {
     "schemas": {
+      "ProductDiscountDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "discountId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "ProductFeatureDTO": {
         "type": "object",
         "properties": {

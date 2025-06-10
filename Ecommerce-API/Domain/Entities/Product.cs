@@ -18,5 +18,7 @@ namespace Domain.Entities
         public ICollection<ProductFeature> Features { get; set; }
         public ICollection<ProductDiscount> ProductDiscounts { get; set; }
         public ICollection<ProductImage> ProductImages { get; set; }
+        public int ProductTypeId { get; set; } 
+        public ProductType ProductType { get; set; }
     }
 }

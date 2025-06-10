@@ -20,6 +20,8 @@ namespace Service.Services
         private readonly IProductRepository _repository;
         private readonly IMapper _mapper;
         private readonly ILogger<ProductService> _logger;
+        private readonly IProductDiscountRepository _discountRepository;
+        private readonly IProductImageRepository _productImageRepository;
         public ProductService(IProductRepository repository, IMapper mapper, ILogger<ProductService> logger)
         {
            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
@@ -91,6 +93,17 @@ namespace Service.Services
                     });
                 }
             }
+
+            var discounts = entity.ProductDiscounts.Select(mbox => new ProductDiscount
+            {
+                ProductId = mbox.ProductId,
+                DiscountId = mbox.DiscountId
+            }).ToList() ?? new List<ProductDiscount>();
+
+            foreach (var discount in discounts)
+            {
+                 await _discountRepository.CreateAsync(discount);
+            }
             await _repository.CreateAsync(product);
             _logger.LogInformation($"Product with ID {product.Id} created successfully.");
             return new CreateResponse
@@ -106,14 +119,123 @@ namespace Service.Services
         }
         public async Task<IEnumerable<ProductDTO>> GetAllAsync() => _mapper.Map<IEnumerable<ProductDTO>>(await _repository.GetAllAsync());
         public async Task<ProductDTO> GetByIdAsync(int id) => _mapper.Map<ProductDTO>(await _repository.GetByIdAsync(id));
-        public async Task UpdateAsync(ProductUpdateDTO entity)
+        public async Task<CreateResponse> UpdateAsync(ProductUpdateDTO entity)
         {
-            var product = await _repository.GetByIdAsync(entity.Id);
+            var product = await _repository.GetByIdWithIncludesAsync(entity.Id);
             if (product == null)
-                throw new KeyNotFoundException($"Product with id {entity.Id} not found.");
-            _mapper.Map(entity, product);
+            {
+                return new CreateResponse
+                {
+                    StatusCode = 404,
+                    Message = $"Product with id {entity.Id} not found."
+                };
+            }
+
+            var directory = Directory.GetCurrentDirectory();
+            string imageFolder = Path.Combine(directory, "wwwroot/media");
+            if (!Directory.Exists(imageFolder))
+            {
+                Directory.CreateDirectory(imageFolder);
+            }
+
+            product.Name = entity.Name ?? product.Name;
+            if (entity.Price==null && entity.Price==0)
+            {
+                product.Price = product.Price;
+            }
+            else
+            {
+                product.Price = entity.Price;
+            }
+            if (entity.CategoryId == null && entity.CategoryId == 0)
+            {
+                product.CategoryId = product.CategoryId;
+            }
+            else
+            {
+                product.CategoryId = entity.CategoryId;
+            }
+            if (entity.ProductTypeId == null && entity.ProductTypeId == 0)
+            {
+                product.ProductTypeId = product.ProductTypeId;
+            }
+            else
+            {
+                product.ProductTypeId = entity.ProductTypeId;
+            }
+            product.Description = entity.Description ?? product.Description;
+            product.CreatedDate = product.CreatedDate; 
+
+            if (entity.Images != null && entity.Images.Count > 0)
+            {
+                if (product.ProductImages != null)
+                {
+                    foreach (var oldImage in product.ProductImages)
+                    {
+                        string oldFilePath = Path.Combine(imageFolder, oldImage.Image);
+                        if (File.Exists(oldFilePath))
+                        {
+                            File.Delete(oldFilePath);
+                        }
+                    }
+                }
+                await _productImageRepository.DeleteByProductIdAsync(product.Id); 
+                product.ProductImages = new List<ProductImage>();
+                for (int i = 0; i < entity.Images.Count; i++)
+                {
+                    var item = entity.Images[i];
+                    if (item == null || item.Length == 0)
+                    {
+                        return new CreateResponse
+                        {
+                            StatusCode = 400,
+                            Message = "Image is null or empty"
+                        };
+                    }
+
+                    string filename = Guid.NewGuid().ToString() + "---" + item.FileName;
+                    string filepath = Path.Combine(imageFolder, filename);
+
+                    using (FileStream stream = new FileStream(filepath, FileMode.Create))
+                    {
+                        await item.CopyToAsync(stream);
+                    }
+
+                    bool isMainImage = i == 0;
+                    product.ProductImages.Add(new ProductImage
+                    {
+                        Image = filename,
+                        ProductId = product.Id,
+                        MainImage = isMainImage
+                    });
+                }
+            }
+
+            if (entity.ProductDiscounts != null && entity.ProductDiscounts.Count > 0)
+            {
+                await _discountRepository.DeleteByProductIdAsync(product.Id); 
+
+                var newDiscounts = entity.ProductDiscounts.Select(d => new ProductDiscount
+                {
+                    ProductId = product.Id,
+                    DiscountId = d.DiscountId
+                }).ToList();
+
+                foreach (var discount in newDiscounts)
+                {
+                    await _discountRepository.CreateAsync(discount);
+                }
+            }
+
             await _repository.UpdateAsync(product);
-            _logger.LogInformation($"Product with ID {product.Id} Updated successfully.");
+
+            _logger.LogInformation($"Product with ID {product.Id} updated successfully.");
+
+            return new CreateResponse
+            {
+                StatusCode = 200,
+                Message = "Product updated successfully"
+            };
         }
     }
 }

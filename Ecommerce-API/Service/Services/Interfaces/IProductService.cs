@@ -13,7 +13,7 @@ namespace Service.Services.Interfaces
     public interface IProductService
     {
         Task<CreateResponse> CreateAsync(ProductCreateDTO entity);
-        Task UpdateAsync(ProductUpdateDTO entity);
+        Task<CreateResponse> UpdateAsync(ProductUpdateDTO entity);
         Task DeleteAsync(int id);
         Task<IEnumerable<ProductDTO>> GetAllAsync();
         Task<ProductDTO> GetByIdAsync(int id);
