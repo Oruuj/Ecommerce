@@ -1,10 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Oruj\\Documents\\Repositories\\E-commerce\\Ecommerce-API\\",
+  "WorkspaceRootPath": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|c:\\users\\oruj\\documents\\repositories\\e-commerce\\ecommerce-api\\service\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|solutionrelative:service\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|c:\\users\\oruj\\documents\\projects\\e-commerce\\ecommerce-api\\service\\services\\catergoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|solutionrelative:service\\services\\catergoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|c:\\users\\oruj\\documents\\projects\\e-commerce\\ecommerce-api\\service\\services\\interfaces\\icatergoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|solutionrelative:service\\services\\interfaces\\icatergoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|c:\\users\\oruj\\documents\\projects\\e-commerce\\ecommerce-api\\service\\dtos\\categorydtos\\categorycreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|solutionrelative:service\\dtos\\categorydtos\\categorycreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|c:\\users\\oruj\\documents\\projects\\e-commerce\\ecommerce-api\\service\\dtos\\categorydtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|solutionrelative:service\\dtos\\categorydtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|c:\\users\\oruj\\documents\\projects\\e-commerce\\ecommerce-api\\service\\services\\productdiscountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D8B40AB-A55E-4DC6-BB46-2821CCD25AD3}|Service\\Service.csproj|solutionrelative:service\\services\\productdiscountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,23 +30,79 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CategoryDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\Service\\DTOs\\CategoryDTOs\\CategoryDTO.cs",
+              "RelativeDocumentMoniker": "Service\\DTOs\\CategoryDTOs\\CategoryDTO.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\Service\\DTOs\\CategoryDTOs\\CategoryDTO.cs",
+              "RelativeToolTip": "Service\\DTOs\\CategoryDTOs\\CategoryDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T18:02:27.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CategoryCreateDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\Service\\DTOs\\CategoryDTOs\\CategoryCreateDTO.cs",
+              "RelativeDocumentMoniker": "Service\\DTOs\\CategoryDTOs\\CategoryCreateDTO.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\Service\\DTOs\\CategoryDTOs\\CategoryCreateDTO.cs",
+              "RelativeToolTip": "Service\\DTOs\\CategoryDTOs\\CategoryCreateDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T18:02:24.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductDiscountService.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\Service\\Services\\ProductDiscountService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\ProductDiscountService.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\Service\\Services\\ProductDiscountService.cs",
+              "RelativeToolTip": "Service\\Services\\ProductDiscountService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T18:01:31.505Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Repositories\\E-commerce\\Ecommerce-API\\Service\\Services\\ProductService.cs",
-              "RelativeDocumentMoniker": "Service\\Services\\ProductService.cs",
-              "ToolTip": "C:\\Users\\Oruj\\Documents\\Repositories\\E-commerce\\Ecommerce-API\\Service\\Services\\ProductService.cs",
-              "RelativeToolTip": "Service\\Services\\ProductService.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAwwLYAAAAQAAAAAAAAAA==",
+              "Title": "CatergoryService.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\Service\\Services\\CatergoryService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\CatergoryService.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\Service\\Services\\CatergoryService.cs*",
+              "RelativeToolTip": "Service\\Services\\CatergoryService.cs*",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T09:32:13.794Z",
+              "WhenOpened": "2025-06-11T18:01:18.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ICatergoryService.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\Service\\Services\\Interfaces\\ICatergoryService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\ICatergoryService.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\Service\\Services\\Interfaces\\ICatergoryService.cs",
+              "RelativeToolTip": "Service\\Services\\Interfaces\\ICatergoryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBAAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T18:01:08.644Z",
               "EditorCaption": ""
             }
           ]

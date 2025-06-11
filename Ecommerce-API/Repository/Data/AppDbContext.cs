@@ -10,7 +10,6 @@ namespace Repository.Data
         public AppDbContext(DbContextOptions<AppDbContext> option) : base(option) { }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<ProductFeature> ProductFeatures { get; set; }
         public DbSet<ProductDiscount> ProductDiscounts { get; set; }
         public DbSet<Discount> Discounts { get; set; }

@@ -10,5 +10,6 @@ namespace Repository.Repositories.Interfaces
     public interface IProductDiscountRepository : IBaseRepository<ProductDiscount>
     {
         Task DeleteByProductIdAsync(int productId);
+        Task<ProductDiscount> GetByProductIdAsync(int productId);
     }
 }

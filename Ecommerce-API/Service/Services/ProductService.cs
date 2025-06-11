@@ -155,14 +155,6 @@ namespace Service.Services
             {
                 product.CategoryId = entity.CategoryId;
             }
-            if (entity.ProductTypeId == null && entity.ProductTypeId == 0)
-            {
-                product.ProductTypeId = product.ProductTypeId;
-            }
-            else
-            {
-                product.ProductTypeId = entity.ProductTypeId;
-            }
             product.Description = entity.Description ?? product.Description;
             product.CreatedDate = product.CreatedDate; 
 

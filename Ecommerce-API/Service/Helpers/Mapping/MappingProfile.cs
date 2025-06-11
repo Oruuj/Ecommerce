@@ -3,7 +3,6 @@ using Domain.Entities;
 using Service.DTOs.CategoryDTOs;
 using Service.DTOs.ProductDTOs;
 using Service.DTOs.ProductFeature;
-using Service.DTOs.ProductTypeDTOs;
 
 namespace Service.Helpers.Mapping
 {
@@ -24,7 +23,6 @@ namespace Service.Helpers.Mapping
                 .ForMember(mbox => mbox.Features, mbox => mbox.MapFrom(src => src.Features));
             CreateMap<Product, ProductUpdateDTO>();
             CreateMap<Category, CategoryDTO>().ReverseMap();
-            CreateMap<ProductType, ProductTypeDTO>().ReverseMap();
         }
     }
 }

@@ -12,7 +12,8 @@ namespace Repository
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductFeatureRepository, ProductFeatureRepository>();
-            services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
+            services.AddScoped<IProductDiscountRepository, ProductDiscountRepository>();
+
             return services;
         }
     }

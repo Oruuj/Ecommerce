@@ -11,6 +11,8 @@ namespace Repository
         public static IServiceCollection AddServiceLayer(this IServiceCollection services)
         {
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductDiscountService, ProductDiscountService>();
+            services.AddScoped<ICategoryService, CategoryService>();
             return services;
         }
     }

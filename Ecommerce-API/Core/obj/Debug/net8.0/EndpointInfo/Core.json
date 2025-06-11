@@ -104,10 +104,6 @@
                       "type": "string",
                       "format": "binary"
                     }
-                  },
-                  "ProductTypeId": {
-                    "type": "integer",
-                    "format": "int32"
                   }
                 }
               },
@@ -131,9 +127,6 @@
                   "style": "form"
                 },
                 "Images": {
-                  "style": "form"
-                },
-                "ProductTypeId": {
                   "style": "form"
                 }
               }
@@ -194,10 +187,6 @@
                       "type": "string",
                       "format": "binary"
                     }
-                  },
-                  "ProductTypeId": {
-                    "type": "integer",
-                    "format": "int32"
                   }
                 }
               },
@@ -224,9 +213,6 @@
                   "style": "form"
                 },
                 "Images": {
-                  "style": "form"
-                },
-                "ProductTypeId": {
                   "style": "form"
                 }
               }

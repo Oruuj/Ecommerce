@@ -19,6 +19,5 @@ namespace Service.DTOs.ProductDTOs
         public List<ProductFeatureDTO> Features { get; set; }
         public List<ProductDiscountDTO> ProductDiscounts { get; set; }
         public List<IFormFile> Images { get; set; }
-        public int ProductTypeId { get; set; }
     }
 }

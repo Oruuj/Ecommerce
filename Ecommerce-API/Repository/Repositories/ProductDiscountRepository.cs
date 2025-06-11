@@ -26,5 +26,9 @@ namespace Repository.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+        public async Task<ProductDiscount> GetByProductIdAsync(int productId)
+        {
+            return await _context.ProductDiscounts.FirstOrDefaultAsync(mbox => mbox.ProductId == productId);
+        }
     }
 }
