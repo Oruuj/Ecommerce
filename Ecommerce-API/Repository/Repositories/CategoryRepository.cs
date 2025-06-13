@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    public class CategoryRepository : BaseRepository<Category> , ICategoryRepository
+    public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
     {
         private readonly AppDbContext _context;
         public CategoryRepository(AppDbContext dbContext) : base(dbContext)

@@ -1,11 +1,8 @@
-﻿using Domain.Entities;
-using Service.DTOs.CategoryDTOs;
-using Service.DTOs.ProductDTOs;
+﻿using Service.DTOs.CategoryDTOs;
 using Service.Helpers.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 

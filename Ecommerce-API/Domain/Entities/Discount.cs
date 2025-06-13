@@ -10,7 +10,9 @@ namespace Domain.Entities
     public class Discount : BaseEntity
     {
         public string Name { get; set; }
-        public float Percentage { get; set; }
-        public ICollection<ProductDiscount> ProductDiscounts { get; set; }
+        public decimal DiscountPercentage { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public ICollection<DiscountProduct> DiscountProducts { get; set; }
     }
 }

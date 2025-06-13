@@ -1,6 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Repository.Repositories;
 using Repository.Repositories.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Repository
 {
@@ -12,8 +17,6 @@ namespace Repository
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductFeatureRepository, ProductFeatureRepository>();
-            services.AddScoped<IProductDiscountRepository, ProductDiscountRepository>();
-
             return services;
         }
     }

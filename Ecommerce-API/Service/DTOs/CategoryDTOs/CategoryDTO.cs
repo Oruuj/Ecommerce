@@ -1,5 +1,4 @@
 ﻿using Domain.Entities;
-using Service.DTOs.ProductDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,8 @@ namespace Service.DTOs.CategoryDTOs
 {
     public class CategoryDTO
     {
-        public string Name { get; set; } = string.Empty;
-        public ICollection<ProductDTO> Products { get; private set; }
+        public string Name { get; set; }
+        public ICollection<Product> Products { get; set; }
+
     }
 }

@@ -9,9 +9,9 @@ namespace Domain.Entities
 {
     public class ProductFeature : BaseEntity
     {
+        public string Name { get; set; }
+        public string Value { get; set; }
         public int ProductId { get; set; }
-        public string FeatureName { get; set; }
-        public string FeatureValue { get; set; }
         public Product Product { get; set; }
     }
 }

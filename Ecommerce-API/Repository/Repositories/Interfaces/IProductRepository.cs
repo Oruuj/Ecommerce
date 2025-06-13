@@ -9,6 +9,5 @@ namespace Repository.Repositories.Interfaces
 {
     public interface IProductRepository : IBaseRepository<Product>
     {
-        Task<Product> GetByIdWithIncludesAsync(int productid);
     }
 }

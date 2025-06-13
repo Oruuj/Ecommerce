@@ -2,7 +2,11 @@
 using Domain.Entities;
 using Service.DTOs.CategoryDTOs;
 using Service.DTOs.ProductDTOs;
-using Service.DTOs.ProductFeature;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Service.Helpers.Mapping
 {
@@ -10,19 +14,21 @@ namespace Service.Helpers.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<ProductFeature, ProductFeatureDTO>().ReverseMap();
+            CreateMap<Product, ProductDTO>().ReverseMap();
+            CreateMap<Product, ProductCreateDTO>().ReverseMap();
+            CreateMap<Product, ProductUpdateDTO>().ReverseMap();
+            CreateMap<Product, ProductFeatureCreateDTO>().ReverseMap();
+            CreateMap<ProductFeature, ProductFeatureCreateDTO>().ReverseMap();
 
-            CreateMap<Product, ProductDTO>()
-                .ForMember(mbox => mbox.CategoryName, mbox => mbox.MapFrom(src => src.Category.Name))
-                .ForMember(mbox => mbox.Features, mbox => mbox.MapFrom(src => src.Features));
-            CreateMap<ProductDTO, Product>();
-            CreateMap<ProductCreateDTO, Product>()
-                .ForMember(mbox => mbox.Features, mbox => mbox.MapFrom(src => src.Features));
-            CreateMap<Product, ProductCreateDTO>();
-            CreateMap<ProductUpdateDTO, Product>()
-                .ForMember(mbox => mbox.Features, mbox => mbox.MapFrom(src => src.Features));
-            CreateMap<Product, ProductUpdateDTO>();
+
             CreateMap<Category, CategoryDTO>().ReverseMap();
+            CreateMap<Category, CategoryCreateDTO>().ReverseMap();
+            CreateMap<Category, CategoryUpdateDTO>().ReverseMap();
+
+
+            CreateMap<Category, CategoryUpdateDTO>().ReverseMap();
+            CreateMap<Category, CategoryUpdateDTO>().ReverseMap();
+
         }
     }
 }

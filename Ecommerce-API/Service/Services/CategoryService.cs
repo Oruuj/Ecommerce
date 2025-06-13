@@ -1,16 +1,13 @@
 ﻿using AutoMapper;
 using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repository.Repositories.Interfaces;
 using Service.DTOs.CategoryDTOs;
-using Service.DTOs.ProductDTOs;
 using Service.Helpers.Responses;
 using Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -76,7 +73,7 @@ namespace Service.Services
                 };
             }
             var updatedEntity = _mapper.Map<Category>(entity);
-            updatedEntity.Id = entity.Id; 
+            updatedEntity.Id = entity.Id;
             await _repository.UpdateAsync(updatedEntity);
             _logger.LogInformation($"Category with ID {entity.Id} updated successfully.");
             return new CreateResponse

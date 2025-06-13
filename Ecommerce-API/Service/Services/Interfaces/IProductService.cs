@@ -14,9 +14,8 @@ namespace Service.Services.Interfaces
     {
         Task<CreateResponse> CreateAsync(ProductCreateDTO entity);
         Task<CreateResponse> UpdateAsync(ProductUpdateDTO entity);
-        Task DeleteAsync(int id);
+        Task<CreateResponse> DeleteAsync(int id);
         Task<IEnumerable<ProductDTO>> GetAllAsync();
         Task<ProductDTO> GetByIdAsync(int id);
-        Task<IEnumerable<ProductDTO>> FindByConditionAsync(Expression<Func<Product, bool>> predicate);
     }
 }

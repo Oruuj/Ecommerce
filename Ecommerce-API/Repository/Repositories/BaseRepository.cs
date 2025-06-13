@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Repository.Repositories
@@ -41,12 +42,6 @@ namespace Repository.Repositories
             _dbSet.Remove(data);
             await _context.SaveChangesAsync();
         }
-
-        public async Task<IEnumerable<T>> FindByConditionAsync(Expression<Func<T, bool>> predicate)
-        {
-            return await _dbSet.AsNoTracking().Where(predicate).ToListAsync();
-        }
-
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _dbSet.AsNoTracking().ToListAsync();
