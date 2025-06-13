@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Http;
+using Service.DTOs.ProductFeatureDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

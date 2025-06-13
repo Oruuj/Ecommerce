@@ -17,5 +17,15 @@ namespace Repository.Repositories
     {
         _context = dbContext;
     }
-}
+
+        public async Task<IEnumerable<ProductFeature>> GetByAllProductId(int ProductId)
+        {
+            return await _context.ProductFeatures.Where(mbox => mbox.ProductId == ProductId).ToListAsync();
+        }
+
+        public async Task<ProductFeature> GetByProductId(int ProductId)
+        {
+            return await _context.ProductFeatures.FirstOrDefaultAsync(mbox => mbox.ProductId == ProductId);
+        }
+    }
 }

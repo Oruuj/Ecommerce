@@ -9,5 +9,8 @@ namespace Repository.Repositories.Interfaces
 {
     public interface IProductFeatureRepository : IBaseRepository<ProductFeature>
     {
+        Task<ProductFeature> GetByProductId(int ProductId);
+        Task<IEnumerable<ProductFeature>> GetByAllProductId(int ProductId);
+
     }
 }

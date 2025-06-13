@@ -118,7 +118,7 @@
       },
       {
         "Name": "ProductFeatures",
-        "Type": "System.Collections.Generic.List\u00601[[Service.DTOs.ProductDTOs.ProductFeatureCreateDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Service.DTOs.ProductFeatureDTOs.ProductFeatureCreateDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       },
       {
@@ -161,9 +161,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Ecommerce_API.Controllers.Admin.ProductfeatureController",
+    "ContainingType": "Ecommerce_API.Controllers.Admin.ProductFeatureController",
     "Method": "Create",
-    "RelativePath": "api/Productfeature/Admin/Create",
+    "RelativePath": "api/ProductFeature/Admin/Create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -182,6 +182,111 @@
         "Name": "ProductId",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.Admin.ProductFeatureController",
+    "Method": "Delete",
+    "RelativePath": "api/ProductFeature/Admin/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.Admin.ProductFeatureController",
+    "Method": "Update",
+    "RelativePath": "api/ProductFeature/Admin/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Value",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProductId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.UI.ProductFeatureController",
+    "Method": "GetAll",
+    "RelativePath": "api/ProductFeature/UI/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.UI.ProductFeatureController",
+    "Method": "GetByAllProductId",
+    "RelativePath": "api/ProductFeature/UI/GetByAllProductId/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.UI.ProductFeatureController",
+    "Method": "GetById",
+    "RelativePath": "api/ProductFeature/UI/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.UI.ProductFeatureController",
+    "Method": "GetByProductId",
+    "RelativePath": "api/ProductFeature/UI/GetByProductId/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
