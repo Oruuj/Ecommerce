@@ -21,13 +21,11 @@ namespace Service.Services
         private readonly IProductRepository _repository;
         private readonly IMapper _mapper;
         private readonly ILogger<ProductService> _logger;
-        private readonly IProductFeatureService _productFeatureService;
-        public ProductService(IProductRepository productRepository,IMapper mapper, ILogger<ProductService> logger,AppDbContext context, IProductFeatureService productFeatureService)
+        public ProductService(IProductRepository productRepository,IMapper mapper, ILogger<ProductService> logger,AppDbContext context)
         {
             _repository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _productFeatureService = productFeatureService ?? throw new ArgumentNullException(nameof(productFeatureService));
         }
         public async Task<CreateResponse> CreateAsync(ProductCreateDTO entity)
         {

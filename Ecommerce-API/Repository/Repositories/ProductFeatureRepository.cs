@@ -13,10 +13,10 @@ namespace Repository.Repositories
     public class ProductFeatureRepository : BaseRepository<ProductFeature>, IProductFeatureRepository
     {
         private readonly AppDbContext _context;
-    public ProductFeatureRepository(AppDbContext dbContext) : base(dbContext)
-    {
-        _context = dbContext;
-    }
+        public ProductFeatureRepository(AppDbContext dbContext) : base(dbContext)
+        {
+            _context = dbContext;
+        }
 
         public async Task<IEnumerable<ProductFeature>> GetByAllProductId(int ProductId)
         {

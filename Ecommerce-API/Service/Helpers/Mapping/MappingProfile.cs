@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Entities;
 using Service.DTOs.CategoryDTOs;
+using Service.DTOs.DiscountDTOs;
 using Service.DTOs.ProductDTOs;
 using Service.DTOs.ProductFeatureDTOs;
 using System;
@@ -33,6 +34,9 @@ namespace Service.Helpers.Mapping
             CreateMap<ProductFeature, ProductFeatureUpdateDTO>().ReverseMap();
             CreateMap<ProductFeature, ProductFeatureDTO>().ReverseMap();
 
+            CreateMap<Discount, DiscountDTO>().ReverseMap();
+            CreateMap<Discount, DiscountCreateDTO>().ReverseMap();
+            CreateMap<Discount, DiscountUpdateDTO>().ReverseMap();
         }
     }
 }

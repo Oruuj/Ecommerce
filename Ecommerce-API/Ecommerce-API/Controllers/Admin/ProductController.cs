@@ -25,5 +25,33 @@ namespace Ecommerce_API.Controllers.Admin
             }
             return Ok(response);
         }
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAsync([FromQuery] int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("Invalid product ID.");
+            }
+            var response = await _productService.DeleteAsync(id);
+            if (response.StatusCode == 400)
+            {
+                return BadRequest(response.Message);
+            }
+            return Ok(response);
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateAsync([FromForm] ProductUpdateDTO entity)
+        {
+            if (entity == null)
+            {
+                return BadRequest("Product data is null.");
+            }
+            var response = await _productService.UpdateAsync(entity);
+            if (response.StatusCode == 400)
+            {
+                return BadRequest(response.Message);
+            }
+            return Ok(response);
+        }
     }
 }
