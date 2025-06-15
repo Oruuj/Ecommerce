@@ -1,0 +1,77 @@
+2025-06-15 17:21:56.447 +04:00 [INF] User profile is available. Using 'C:\Users\Oruj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-15 17:21:56.581 +04:00 [INF] Now listening on: https://localhost:7279
+2025-06-15 17:21:56.583 +04:00 [INF] Now listening on: http://localhost:5206
+2025-06-15 17:21:56.632 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-15 17:21:56.632 +04:00 [INF] Hosting environment: Development
+2025-06-15 17:21:56.633 +04:00 [INF] Content root path: C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API
+2025-06-15 17:21:56.981 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/swagger - null null
+2025-06-15 17:21:57.082 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/swagger - 301 0 null 102.4165ms
+2025-06-15 17:21:57.086 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/swagger/index.html - null null
+2025-06-15 17:21:57.127 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/swagger/index.html - 200 null text/html;charset=utf-8 40.848ms
+2025-06-15 17:21:57.142 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/swagger/swagger-ui.css - null null
+2025-06-15 17:21:57.142 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/swagger/index.css - null null
+2025-06-15 17:21:57.142 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/swagger/swagger-ui-standalone-preset.js - null null
+2025-06-15 17:21:57.142 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/swagger/index.js - null null
+2025-06-15 17:21:57.142 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/swagger/swagger-ui-bundle.js - null null
+2025-06-15 17:21:57.143 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-15 17:21:57.145 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/_vs/browserLink - null null
+2025-06-15 17:21:57.151 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/swagger/index.js - 200 null application/javascript;charset=utf-8 8.1936ms
+2025-06-15 17:21:57.152 +04:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-06-15 17:21:57.156 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 13.4309ms
+2025-06-15 17:21:57.159 +04:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-06-15 17:21:57.160 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/swagger/index.css - 200 202 text/css 17.401ms
+2025-06-15 17:21:57.160 +04:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-06-15 17:21:57.165 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/swagger/swagger-ui.css - 200 154949 text/css 22.3597ms
+2025-06-15 17:21:57.168 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/swagger/swagger-ui-standalone-preset.js - 200 229223 text/javascript 25.9237ms
+2025-06-15 17:21:57.176 +04:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-06-15 17:21:57.178 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/swagger/swagger-ui-bundle.js - 200 1484234 text/javascript 35.2177ms
+2025-06-15 17:21:57.211 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/_vs/browserLink - 200 null text/javascript; charset=UTF-8 66.7645ms
+2025-06-15 17:21:57.328 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/swagger/v1/swagger.json - null null
+2025-06-15 17:21:57.341 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.4311ms
+2025-06-15 17:31:49.581 +04:00 [WRN] No store type was specified for the decimal property 'DiscountedPrice' on entity type 'BasketItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:49.601 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'BasketItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:49.601 +04:00 [WRN] No store type was specified for the decimal property 'DiscountPercentage' on entity type 'Discount'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:49.601 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:49.691 +04:00 [WRN] No store type was specified for the decimal property 'DiscountedPrice' on entity type 'BasketItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:49.691 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'BasketItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:49.691 +04:00 [WRN] No store type was specified for the decimal property 'DiscountPercentage' on entity type 'Discount'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:49.691 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:55.723 +04:00 [WRN] No store type was specified for the decimal property 'DiscountedPrice' on entity type 'BasketItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:55.744 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'BasketItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:55.744 +04:00 [WRN] No store type was specified for the decimal property 'DiscountPercentage' on entity type 'Discount'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:55.744 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-15 17:31:56.003 +04:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-06-15 17:31:56.017 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-06-15 17:31:56.018 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-06-15 17:31:56.019 +04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-06-15 17:31:56.044 +04:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-06-15 17:31:56.052 +04:00 [INF] Applying migration '20250615133150_basketentitycreated'.
+2025-06-15 17:31:56.101 +04:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Baskets] (
+    [Id] int NOT NULL IDENTITY,
+    [BuyerId] nvarchar(max) NULL,
+    CONSTRAINT [PK_Baskets] PRIMARY KEY ([Id])
+);
+2025-06-15 17:31:56.104 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [BasketItems] (
+    [Id] int NOT NULL IDENTITY,
+    [Image] nvarchar(max) NOT NULL,
+    [Title] nvarchar(max) NOT NULL,
+    [Price] decimal(18,2) NOT NULL,
+    [DiscountedPrice] decimal(18,2) NOT NULL,
+    [BasketId] int NULL,
+    CONSTRAINT [PK_BasketItems] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_BasketItems_Baskets_BasketId] FOREIGN KEY ([BasketId]) REFERENCES [Baskets] ([Id])
+);
+2025-06-15 17:31:56.107 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_BasketItems_BasketId] ON [BasketItems] ([BasketId]);
+2025-06-15 17:31:56.111 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250615133150_basketentitycreated', N'8.0.17');

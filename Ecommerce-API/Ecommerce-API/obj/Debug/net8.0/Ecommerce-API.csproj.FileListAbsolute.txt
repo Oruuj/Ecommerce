@@ -291,3 +291,7 @@ C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\obj\Debu
 C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\obj\Debug\net8.0\ref\Ecommerce-API.dll
 C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\bin\Debug\net8.0\Ecommerce-API.staticwebassets.runtime.json
 C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\obj\Debug\net8.0\Ecommerce-API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
