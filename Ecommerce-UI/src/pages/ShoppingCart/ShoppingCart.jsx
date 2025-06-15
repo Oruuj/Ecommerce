@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import img from '../../assets/a.png';
 import { MdCancel } from "react-icons/md";
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/footer';
+
+import { useBasket } from '../../Context/BasketContext';
+
+const buyerId = '1';
+
 import './ShoppingCart.scss';
+
 const ShoppingCard = () => {
+    const { basket, fetchBasket, addItem } = useBasket();
+
+    useEffect(() => {
+        fetchBasket(buyerId);
+    }, []);
+
     return (
         <>
             <header>
@@ -17,55 +29,38 @@ const ShoppingCard = () => {
                     </div>
                     <div className="content">
                         <div className="items flex flex-col items-center justify-start gap-4">
-                            <div className="item flex items-center justify-between mt-5 mb-5">
-                                <img src={img} />
-                                <div className="text">
-                                    <span>Apple iPhone 14 Pro Max</span>
+                            {basket?.items?.map(item => (
+                                <div className="item flex items-center justify-between mt-5 mb-5" key={item.productId}>
+                                    <img src={item.Image || img} alt={item.Title} />
+                                    <div className="text">
+                                        <span>{item.Title}</span>
+                                    </div>
+                                    <div className="counter">
+                                        <span>-</span>
+                                        <span className='count'>{item.Quantity}</span>
+                                        <span>+</span>
+                                    </div>
+                                    <div className="price">
+                                        {item.DiscountedPrice != null ? (
+                                            <>
+                                                <span className='line-through text-gray-500 text-sm font-semibold mr-2'>
+                                                    ${item.Price.toFixed(2)}
+                                                </span>
+                                                <span className='text-xl font-bold'>
+                                                    ${item.DiscountedPrice.toFixed(2)}
+                                                </span>
+                                            </>
+                                        ) : (
+                                            <span className='text-gray-500 text-sm font-semibold mr-2'>
+                                                ${item.Price.toFixed(2)}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <MdCancel />
                                 </div>
-                                <div className="counter">
-                                    <span>-</span>
-                                    <span className='count'>1</span>
-                                    <span>+</span>
-                                </div>
-                                <div className="price">
-                                    <span className='line-through text-gray-500 text-sm font-semibold mr-2'>$999</span>
-                                    <span className='text-xl font-bold'>$949</span>
-                                </div>
-                                <MdCancel />
-                            </div>
-                            <div className="item flex items-center justify-between mt-5 mb-5">
-                                <img src={img} />
-                                <div className="text">
-                                    <span>Apple iPhone 14 Pro Max</span>
-                                </div>
-                                <div className="counter">
-                                    <span>-</span>
-                                    <span className='count'>1</span>
-                                    <span>+</span>
-                                </div>
-                                <div className="price">
-                                    <span className='line-through text-gray-500 text-sm font-semibold mr-2'>$999</span>
-                                    <span className='text-xl font-bold'>$949</span>
-                                </div>
-                                <MdCancel />
-                            </div>
-                            <div className="item flex items-center justify-between mt-5 mb-5">
-                                <img src={img} />
-                                <div className="text">
-                                    <span>Apple iPhone 14 Pro Max</span>
-                                </div>
-                                <div className="counter">
-                                    <span>-</span>
-                                    <span className='count'>1</span>
-                                    <span>+</span>
-                                </div>
-                                <div className="price">
-                                    <span className='line-through text-gray-500 text-sm font-semibold mr-2'>$999</span>
-                                    <span className='text-xl font-bold'>$949</span>
-                                </div>
-                                <MdCancel />
-                            </div>
+                            ))}
                         </div>
+
                         <div className="order-summary">
                             <div className="title font-semibold text-3xl">
                                 Order Summary
@@ -83,7 +78,7 @@ const ShoppingCard = () => {
                                 </div>
                                 <div className="discounts flex justify-between">
                                     <span>Discounted</span>
-                                    <span>$ 50</span>
+                                    <span>$50</span>
                                 </div>
                                 <div className="total flex justify-between">
                                     <span>Total</span>
@@ -92,7 +87,6 @@ const ShoppingCard = () => {
                             </div>
                             <button className='btn mt-5'>Checkout</button>
                         </div>
-
                     </div>
                 </div>
             </main>
@@ -103,4 +97,4 @@ const ShoppingCard = () => {
     )
 }
 
-export default ShoppingCard
+export default ShoppingCard;

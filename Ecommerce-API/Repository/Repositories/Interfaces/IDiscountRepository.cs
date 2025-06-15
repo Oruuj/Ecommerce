@@ -12,5 +12,6 @@ namespace Repository.Repositories.Interfaces
         Task<IEnumerable<Discount>> GetAllDiscountByProduct(int id);
         Task<IEnumerable<Product>> GetAllProductByDiscount(int id);
         Task AddToProduct(int DiscountId, int ProductId);
+        Task<List<Discount>> GetByProductIdAsync(int Productid);
     }
 }

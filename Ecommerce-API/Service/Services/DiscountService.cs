@@ -90,6 +90,17 @@ namespace Service.Services
             _logger.LogInformation($"Retrieved discount with ID {id} successfully.");
             return _mapper.Map<DiscountDTO>(discount);
         }
+        public async Task<DiscountDTO> GetByProductIdAsync(int Productid)
+        {
+            var discount = await _repository.GetByProductIdAsync(Productid);
+            if (discount == null)
+            {
+                _logger.LogWarning($"No discount found for product with ID {Productid}.");
+                return null;
+            }
+            _logger.LogInformation($"Retrieved discount for product with ID {Productid} successfully.");
+            return _mapper.Map<DiscountDTO>(discount);
+        }
 
         public async Task<IEnumerable<DiscountDTO>> GetAllDiscountByProduct(int id)
         {

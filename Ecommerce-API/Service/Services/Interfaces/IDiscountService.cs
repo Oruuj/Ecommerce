@@ -20,5 +20,6 @@ namespace Service.Services.Interfaces
         Task<IEnumerable<DiscountDTO>> GetAllDiscountByProduct(int id);
         Task<IEnumerable<ProductDTO>> GetAllProductByDiscount(int id);
         Task<CreateResponse> AddToProduct(DiscountAddDTO entity);
+        Task<DiscountDTO> GetByProductIdAsync(int Productid);
     }
 }

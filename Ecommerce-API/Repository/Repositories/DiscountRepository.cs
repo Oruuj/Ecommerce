@@ -31,5 +31,7 @@ namespace Repository.Repositories
         public async Task<IEnumerable<Discount>> GetAllDiscountByProduct(int id) => await _context.Discounts.Where(mbox => mbox.DiscountProducts.Any(mbox => mbox.ProductId == id)).ToListAsync();
 
         public async Task<IEnumerable<Product>> GetAllProductByDiscount(int id) => await _context.Products.Where(mbox => mbox.DiscountProducts.Any(mbox => mbox.DiscountId == id)).ToListAsync();
+
+        public async Task<List<Discount>> GetByProductIdAsync(int productId) => await _context.Discounts.Include(d => d.DiscountProducts).Where(d => d.DiscountProducts.Any(dp => dp.ProductId == productId)).ToListAsync();
     }
 }

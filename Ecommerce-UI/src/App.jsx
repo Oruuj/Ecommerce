@@ -1,4 +1,4 @@
-import { useState ,useEffect  } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import HomePage from "./pages/Home/HomePage";
@@ -11,6 +11,11 @@ import Profile from "./pages/Profile/Profile";
 import Contact from "./pages/Contact/contact";
 import "./App.css";
 import Lenis from "@studio-freight/lenis";
+
+import { BasketProvider } from './Context/BasketContext';
+
+
+
 function AnimatedRoutes() {
   const location = useLocation();
 
@@ -170,7 +175,9 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
-      <AnimatedRoutes />
+      <BasketProvider>
+        <AnimatedRoutes />
+      </BasketProvider>
     </BrowserRouter>
   );
 }
