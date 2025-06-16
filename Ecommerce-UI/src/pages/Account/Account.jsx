@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/footer";
 import "./Account.scss";
 import { motion, AnimatePresence } from "framer-motion";
-import axios from "axios";
+import axios from "./../../api/axios";
 
 
 const Account = () => {
@@ -61,7 +61,7 @@ const Account = () => {
 
     try {
       const response = await axios.post(
-        "https://localhost:7279/api/Account/UI/Login",
+        "/api/Account/UI/Login",
         {
           userNameOrEmail: loginData.userNameOrEmail,
           password: loginData.password
@@ -96,7 +96,7 @@ const Account = () => {
       };
 
       const response = await axios.post(
-        "https://localhost:7279/api/Account/UI/Register",
+        "/api/Account/UI/Register",
         payload
       );
       setMessage("Registration successful! Please check your email.");

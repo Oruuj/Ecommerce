@@ -31,10 +31,12 @@ namespace Service.Services
         {
             var directory = Directory.GetCurrentDirectory();
             string imageFolder = Path.Combine(directory, "wwwroot/media");
+
             if (!Directory.Exists(imageFolder))
             {
                 Directory.CreateDirectory(imageFolder);
             }
+
             var product = new Product
             {
                 Name = entity.Name,
@@ -46,57 +48,130 @@ namespace Service.Services
                 ProductFeatures = new List<ProductFeature>(),
                 ProductImages = new List<ProductImage>()
             };
-            
+
             if (entity.Images != null && entity.Images.Count > 0)
             {
                 for (int i = 0; i < entity.Images.Count; i++)
                 {
-                    var item = entity.Images[i];
+                    var file = entity.Images[i];
 
-                    if (item == null || item.Length == 0)
+                    if (file == null || file.Length == 0)
                     {
                         return new CreateResponse
                         {
                             StatusCode = 400,
-                            Message = "Image is null or empty"
+                            Message = "One or more images are empty."
                         };
                     }
 
-                    string filename = Guid.NewGuid().ToString() + "---" + item.FileName;
+                    string filename = Guid.NewGuid() + "---" + file.FileName;
                     string filepath = Path.Combine(imageFolder, filename);
 
-                    using (FileStream stream = new FileStream(filepath, FileMode.Create))
+                    using (var stream = new FileStream(filepath, FileMode.Create))
                     {
-                        await item.CopyToAsync(stream);
+                        await file.CopyToAsync(stream);
                     }
 
-                    bool isMainImage = i == 0;
+                    string imageUrl = Path.Combine("media", filename).Replace("\\", "/");
 
                     product.ProductImages.Add(new ProductImage
                     {
-                        Image = filename,
+                        Image = imageUrl,
                         Product = product,
-                        MainImage = isMainImage
+                        MainImage = i == 0 
                     });
                 }
             }
 
             await _repository.CreateAsync(product);
-
             _logger.LogInformation($"Product with id {product.Id} created successfully.");
+
             return new CreateResponse
             {
                 StatusCode = 201,
-                Message = "Product created successfully.",
+                Message = "Product created successfully."
             };
         }
 
-
-
-        public Task<CreateResponse> UpdateAsync(ProductUpdateDTO entity)
+        public async Task<CreateResponse> UpdateAsync(ProductUpdateDTO entity)
         {
-            throw new NotImplementedException();
+            var product = await _repository.GetByIdAsync(entity.Id);
+            if (product == null)
+            {
+                _logger.LogWarning($"Product with ID {entity.Id} not found.");
+                return new CreateResponse
+                {
+                    StatusCode = 404,
+                    Message = $"Product with ID {entity.Id} not found."
+                };
+            }
+
+            product.Name = entity.Name ?? product.Name;
+            product.Description = entity.Description ?? product.Description;
+            product.Price = entity.Price != default ? entity.Price : product.Price;
+            product.Brand = entity.Brand ?? product.Brand;
+            product.StockQuantity = entity.StockQuantity != default ? entity.StockQuantity : product.StockQuantity;
+            product.CategoryId = entity.CategoryId != default ? entity.CategoryId : product.CategoryId;
+
+            var directory = Directory.GetCurrentDirectory();
+            string imageFolder = Path.Combine(directory, "wwwroot/media");
+
+            if (!Directory.Exists(imageFolder))
+            {
+                Directory.CreateDirectory(imageFolder);
+            }
+
+            if (entity.Images != null && entity.Images.Count > 0)
+            {
+                foreach (var oldImage in product.ProductImages)
+                {
+                    var oldFilePath = Path.Combine(directory, "wwwroot", oldImage.Image);
+                    if (File.Exists(oldFilePath))
+                    {
+                        File.Delete(oldFilePath);
+                    }
+                }
+
+                product.ProductImages.Clear();
+
+                for (int i = 0; i < entity.Images.Count; i++)
+                {
+                    var file = entity.Images[i];
+
+                    if (file == null || file.Length == 0)
+                    {
+                        continue;
+                    }
+
+                    string filename = Guid.NewGuid() + "---" + file.FileName;
+                    string filepath = Path.Combine(imageFolder, filename);
+
+                    using (var stream = new FileStream(filepath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+
+                    string imageUrl = Path.Combine("media", filename).Replace("\\", "/");
+
+                    product.ProductImages.Add(new ProductImage
+                    {
+                        Image = imageUrl,
+                        Product = product,
+                        MainImage = i == 0
+                    });
+                }
+            }
+
+            await _repository.UpdateAsync(product);
+
+            _logger.LogInformation($"Product with ID {entity.Id} updated successfully.");
+            return new CreateResponse
+            {
+                StatusCode = 200,
+                Message = $"Product with ID {entity.Id} updated successfully."
+            };
         }
+
 
 
 

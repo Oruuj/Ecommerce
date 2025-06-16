@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using MailKit.Security;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
@@ -8,6 +9,7 @@ using Service.DTOs.Account;
 using Service.DTOs.AccountDTOs;
 using Service.Helpers.Enums;
 using Service.Services.Interfaces;
+using System.Security.Claims;
 
 namespace Ecommerce_API.Controllers.UI
 {
@@ -179,6 +181,29 @@ namespace Ecommerce_API.Controllers.UI
         {
             var result = await _accountService.CreateRoles();
             return Ok(result);
+        }
+
+
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> GetProfile()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+                return Unauthorized();
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+                return NotFound();
+
+            return Ok(new
+            {
+                user.Id,
+                user.UserName,
+                user.Email,
+                user.FullName
+            });
         }
     }
 }

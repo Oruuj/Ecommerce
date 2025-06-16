@@ -1,4 +1,5 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
+import axios from "./../../api/axios";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/footer";
 import userimg from "../../assets/user.png";
@@ -9,7 +10,6 @@ import { MdOutlinePayment } from "react-icons/md";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import Address from "../../components/Address/Address";
 import Payment from "../../components/Payment/Payment";
-
 import { Modal, Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -30,6 +30,22 @@ const Profile = () => {
     borderRadius: 11,
     border: "none",
   };
+
+  const [profile, setProfile] = useState(null);
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        console.log("Token:", token);
+        const response = await axios.get("/api/Account/UI/GetProfile", { headers: { Authorization: `Bearer ${token}` } });
+        setProfile(response.data);
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
+    };
+    fetchProfile();
+  }, []);
+
   return (
     <>
       <header>
@@ -44,7 +60,8 @@ const Profile = () => {
               </div>
               <div className="user-name">
                 <span>Hi, </span>
-                <span className="font-semibold text-2xl">Oruj</span>
+                <span className="font-semibold text-2xl">{profile?.FullName || "Loading..."}</span>
+
               </div>
             </div>
             <div className="options">

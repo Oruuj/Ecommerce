@@ -104,6 +104,16 @@
   },
   {
     "ContainingType": "Ecommerce_API.Controllers.UI.AccountController",
+    "Method": "GetProfile",
+    "RelativePath": "api/Account/UI/GetProfile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.UI.AccountController",
     "Method": "Login",
     "RelativePath": "api/Account/UI/Login",
     "HttpMethod": "POST",
@@ -579,33 +589,8 @@
         "IsRequired": false
       },
       {
-        "Name": "Category.Name",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Category.Products",
-        "Type": "System.Collections.Generic.ICollection\u00601[[Domain.Entities.Product, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "Category.Id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "ProductFeatures",
-        "Type": "System.Collections.Generic.ICollection\u00601[[Domain.Entities.ProductFeature, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "DiscountProducts",
-        "Type": "System.Collections.Generic.ICollection\u00601[[Domain.Entities.DiscountProduct, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "ProductImages",
-        "Type": "System.Collections.Generic.ICollection\u00601[[Domain.Entities.ProductImage, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
       }
     ],
@@ -762,6 +747,125 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.Admin.SliderController",
+    "Method": "Create",
+    "RelativePath": "api/Slider/Admin/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonText",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.Admin.SliderController",
+    "Method": "Delete",
+    "RelativePath": "api/Slider/Admin/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.Admin.SliderController",
+    "Method": "Update",
+    "RelativePath": "api/Slider/Admin/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonText",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.UI.SliderController",
+    "Method": "GetAll",
+    "RelativePath": "api/Slider/UI/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.UI.SliderController",
+    "Method": "GetById",
+    "RelativePath": "api/Slider/UI/GetById/{Id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
         "Type": "System.Int32",
         "IsRequired": true
       }

@@ -107,6 +107,18 @@
         }
       }
     },
+    "/api/Account/UI/GetProfile": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Account/Admin/CreateRole": {
       "post": {
         "tags": [
@@ -883,35 +895,11 @@
                     "type": "integer",
                     "format": "int32"
                   },
-                  "Category.Name": {
-                    "type": "string"
-                  },
-                  "Category.Products": {
+                  "Images": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/Product"
-                    }
-                  },
-                  "Category.Id": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "ProductFeatures": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ProductFeature"
-                    }
-                  },
-                  "DiscountProducts": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/DiscountProduct"
-                    }
-                  },
-                  "ProductImages": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ProductImage"
+                      "type": "string",
+                      "format": "binary"
                     }
                   }
                 }
@@ -938,22 +926,7 @@
                 "CategoryId": {
                   "style": "form"
                 },
-                "Category.Name": {
-                  "style": "form"
-                },
-                "Category.Products": {
-                  "style": "form"
-                },
-                "Category.Id": {
-                  "style": "form"
-                },
-                "ProductFeatures": {
-                  "style": "form"
-                },
-                "DiscountProducts": {
-                  "style": "form"
-                },
-                "ProductImages": {
+                "Images": {
                   "style": "form"
                 }
               }
@@ -1159,6 +1132,183 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Slider/UI/GetAll": {
+      "get": {
+        "tags": [
+          "Slider"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Slider/UI/GetById/{Id}": {
+      "get": {
+        "tags": [
+          "Slider"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Slider/Admin/Create": {
+      "post": {
+        "tags": [
+          "Slider"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ButtonText": {
+                    "type": "string"
+                  },
+                  "ButtonUrl": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Title": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ButtonText": {
+                  "style": "form"
+                },
+                "ButtonUrl": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Slider/Admin/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "Slider"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Slider/Admin/Update": {
+      "put": {
+        "tags": [
+          "Slider"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ButtonText": {
+                    "type": "string"
+                  },
+                  "ButtonUrl": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Title": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ButtonText": {
+                  "style": "form"
+                },
+                "ButtonUrl": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
