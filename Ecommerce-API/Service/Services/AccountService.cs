@@ -114,7 +114,7 @@ namespace Service.Services
 
             var roles = await _userManager.GetRolesAsync(user);
 
-            var token = GenerateJwtToken(user.UserName, roles.ToList());
+            var token = GenerateJwtToken(user.Id, roles.ToList());
 
             return new LoginResponse { Succes = true, ErrorMessage = null, Token = token };
         }
@@ -171,13 +171,13 @@ namespace Service.Services
             return new CreateResponse { StatusCode = 200, Message = "Role removed successfully" };
         }
 
-        private string GenerateJwtToken(string username, List<string> roles)
+        private string GenerateJwtToken(string userid, List<string> roles)
         {
             var claims = new List<Claim>
         {
-            new Claim(JwtRegisteredClaimNames.Sub, username),
+            new Claim(JwtRegisteredClaimNames.Sub, userid),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim(ClaimTypes.NameIdentifier, username)
+            new Claim(ClaimTypes.NameIdentifier, userid)
         };
 
             roles.ForEach(role =>

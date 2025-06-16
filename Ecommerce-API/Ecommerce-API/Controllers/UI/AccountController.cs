@@ -192,7 +192,6 @@ namespace Ecommerce_API.Controllers.UI
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId == null)
                 return Unauthorized();
-
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
                 return NotFound();

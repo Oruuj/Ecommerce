@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5thOBs1a0CQ=",
+  "dgSpecHash": "ffawHF95EpA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Oruj\\Documents\\Projects\\E-commerce\\Ecommerce-API\\Repository\\Repository.csproj",
+  "projectFilePath": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Repository\\Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Oruj\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Oruj\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

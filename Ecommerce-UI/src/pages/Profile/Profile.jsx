@@ -38,6 +38,7 @@ const Profile = () => {
         const token = localStorage.getItem("token");
         console.log("Token:", token);
         const response = await axios.get("/api/Account/UI/GetProfile", { headers: { Authorization: `Bearer ${token}` } });
+        console.log("Profile response:", response.data);
         setProfile(response.data);
       } catch (error) {
         console.error("Error fetching profile:", error);
