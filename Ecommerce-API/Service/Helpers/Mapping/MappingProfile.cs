@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Service.DTOs.Account;
 using Service.DTOs.CategoryDTOs;
 using Service.DTOs.DiscountDTOs;
 using Service.DTOs.ProductDTOs;

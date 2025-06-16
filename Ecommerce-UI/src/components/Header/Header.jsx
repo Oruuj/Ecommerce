@@ -17,6 +17,13 @@ const Header = ({ page }) => {
 
   const navigate = useNavigate();
 
+
+  const token = localStorage.getItem('token');
+  const isLoggedIn = !!token;
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/account');
+  };
   return (
     <>
       <div className="header">
@@ -98,10 +105,23 @@ const Header = ({ page }) => {
                 exit={{ x: 1000, y: 40, opacity: 0 }}
                 transition={{ type: "tween", duration: 0.3 }}
               >
-                <Link to="/account" className="block cursor-pointer mb-2">
-                  Login or register
-                </Link>
-                <Link to="/Profile">Profile</Link>
+                {!isLoggedIn ? (
+                  <Link to="/account" className="block cursor-pointer mb-2">
+                    Login or register
+                  </Link>
+                ) : (
+                  <>
+                    <Link to="/Profile" className="block mb-2">
+                      Profile
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="block text-left cursor-pointer text-red-600"
+                    >
+                      Logout
+                    </button>
+                  </>
+                )}
               </motion.div>
             )}
           </AnimatePresence>
@@ -170,10 +190,23 @@ const Header = ({ page }) => {
                   exit={{ x: 25, y: 600, opacity: 0 }}
                   transition={{ type: "tween", duration: 0.3 }}
                 >
-                  <Link to="/account" className="block cursor-pointer mb-2">
-                    Login or register
-                  </Link>
-                  <Link to="/Profile">Profile</Link>
+                  {!isLoggedIn ? (
+                    <Link to="/account" className="block cursor-pointer mb-2">
+                      Login or register
+                    </Link>
+                  ) : (
+                    <>
+                      <Link to="/Profile" className="block mb-2">
+                        Profile
+                      </Link>
+                      <button
+                        onClick={handleLogout}
+                        className="block text-left cursor-pointer text-red-600"
+                      >
+                        Logout
+                      </button>
+                    </>
+                  )}
                 </motion.div>
               )}
             </AnimatePresence>

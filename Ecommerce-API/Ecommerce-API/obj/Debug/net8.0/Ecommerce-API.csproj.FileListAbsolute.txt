@@ -295,3 +295,11 @@ C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\obj\Debu
 C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\bin\Debug\net8.0\MailKit.dll
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\bin\Debug\net8.0\MimeKit.dll
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\Oruj\Documents\Projects\E-commerce\Ecommerce-API\Ecommerce-API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
