@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GssiajPW3IY=",
+  "dgSpecHash": "6pifV2Uvl2Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Service\\Service.csproj",
+  "projectFilePath": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Service\\Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Oruj\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\Oruj\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import img from '../../assets/Banner-2.png';
 import './Banner2.scss';
+import axios from '../../api/axios';
 
 const Banner2 = () => {
+    const [sliderData, setSliderData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('/api/Slider/UI/GetById/2');
+                console.log("API Response:", response.data);
+                setSliderData(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
     return (
-        <div className='banner' style={{ backgroundImage: `url(${img})` }} >
+        <div className='banner' style={{ backgroundImage: `url(https://localhost:7279/${sliderData?.imageUrl})` }} >
             <div className="content items-center gap-9">
                 <div className="text">
-                    <span className='title font-semibold mb-4'>Big Summer Sale</span>
-                    <span className='desc '>Commodo fames vitae vitae leo mauris in. Eu consequat.</span>
+                    <span className='title font-semibold mb-4'>{sliderData?.title}</span>
+                    <span className='desc '>{sliderData?.description}</span>
                 </div>
-                <button className='btn'>Shop Now</button>
+                <button className='btn'>{sliderData?.buttonText}</button>
             </div>
         </div>
     );

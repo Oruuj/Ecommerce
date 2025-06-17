@@ -27,7 +27,30 @@ namespace Service.Services
 
         public async Task<CreateResponse> CreateAsync(CategoryCreateDTO entity)
         {
-            await _repository.CreateAsync(_mapper.Map<Category>(entity));
+            var directory = Directory.GetCurrentDirectory();
+            string imageFolder = Path.Combine(directory, "wwwroot/images");
+
+            if (!Directory.Exists(imageFolder))
+                Directory.CreateDirectory(imageFolder);
+
+            var Category = new Category
+            {
+                Name = entity.Name,
+            };
+
+            if (entity.ImageFile != null && entity.ImageFile.Length > 0)
+            {
+                string filename = Guid.NewGuid().ToString() + "---" + entity.ImageFile.FileName;
+                string filepath = Path.Combine(imageFolder, filename);
+
+                using (FileStream stream = new FileStream(filepath, FileMode.Create))
+                {
+                    await entity.ImageFile.CopyToAsync(stream);
+                }
+
+                Category.ImageUrl = Path.Combine("images", filename).Replace("\\", "/");
+            }
+            await _repository.CreateAsync(Category);
             _logger.LogInformation("Category created successfully.");
             return new CreateResponse
             {
@@ -72,9 +95,30 @@ namespace Service.Services
                     Message = $"Category with ID {entity.Id} not found."
                 };
             }
-            var updatedEntity = _mapper.Map<Category>(entity);
-            updatedEntity.Id = entity.Id;
-            await _repository.UpdateAsync(updatedEntity);
+
+            existingCategory.Name = entity.Name;
+
+            if (entity.ImageFile != null && entity.ImageFile.Length > 0)
+            {
+                var directory = Directory.GetCurrentDirectory();
+                string imageFolder = Path.Combine(directory, "wwwroot/images");
+
+                if (!Directory.Exists(imageFolder))
+                    Directory.CreateDirectory(imageFolder);
+
+                string filename = Guid.NewGuid().ToString() + "---" + entity.ImageFile.FileName;
+                string filepath = Path.Combine(imageFolder, filename);
+
+                using (FileStream stream = new FileStream(filepath, FileMode.Create))
+                {
+                    await entity.ImageFile.CopyToAsync(stream);
+                }
+
+                existingCategory.ImageUrl = Path.Combine("images", filename).Replace("\\", "/");
+            }
+
+            await _repository.UpdateAsync(existingCategory);
+
             _logger.LogInformation($"Category with ID {entity.Id} updated successfully.");
             return new CreateResponse
             {
@@ -82,5 +126,6 @@ namespace Service.Services
                 Message = "Category updated successfully."
             };
         }
+
     }
 }

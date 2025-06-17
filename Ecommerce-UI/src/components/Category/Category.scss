@@ -6,31 +6,37 @@
         margin-right: auto;
         padding-top: 50px;
         padding-bottom: 50px;
+
         .title-area {
             .title {
                 transition: all 0.6s;
             }
+
             .title:hover {
                 color: rgb(3, 165, 165);
             }
+
             .arrows {
                 .arrow {
                     border-radius: 50%;
                     transition: all 0.6s;
                 }
+
                 .arrow:hover {
                     color: rgb(3, 165, 165);
                     background-color: rgba(3, 141, 141, 15%);
                 }
             }
         }
+
         .categories {
             display: flex;
             gap: 20px;
             padding: 10px 0;
+
             .card {
                 flex: 0 0 auto;
-                width: 160px;
+                width: 200px;
                 height: 128px;
                 background-color: #ededed;
                 border-radius: 11px;
@@ -56,10 +62,12 @@
             }
         }
     }
+
     @media (max-width: 1280px) {
         .title-area {
             justify-content: space-evenly;
         }
+
         .categories {
             margin-left: 50px;
         }
@@ -69,6 +77,7 @@
         .title-area {
             justify-content: space-evenly;
         }
+
         .categories {
             margin-left: 90px;
         }
@@ -78,16 +87,19 @@
         .title-area {
             justify-content: space-evenly;
         }
+
         .categories {
             margin-left: 20px;
         }
     }
 }
+
 .categories-wrapper {
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
+
     &::-webkit-scrollbar {
         display: none;
     }

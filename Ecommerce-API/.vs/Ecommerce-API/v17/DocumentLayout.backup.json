@@ -1,30 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\",
+  "WorkspaceRootPath": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{965DB42A-A3E6-405A-A693-DB7CE4A6852C}|Ecommerce-API\\Ecommerce-API.csproj|c:\\users\\oruj\\desktop\\ecommerce\\ecommerce-api\\ecommerce-api\\controllers\\ui\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{965DB42A-A3E6-405A-A693-DB7CE4A6852C}|Ecommerce-API\\Ecommerce-API.csproj|solutionrelative:ecommerce-api\\controllers\\ui\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|c:\\users\\oruj\\desktop\\ecommerce\\ecommerce-api\\service\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|solutionrelative:service\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{965DB42A-A3E6-405A-A693-DB7CE4A6852C}|Ecommerce-API\\Ecommerce-API.csproj|c:\\users\\oruj\\desktop\\ecommerce\\ecommerce-api\\ecommerce-api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{965DB42A-A3E6-405A-A693-DB7CE4A6852C}|Ecommerce-API\\Ecommerce-API.csproj|solutionrelative:ecommerce-api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|c:\\users\\oruj\\desktop\\ecommerce\\ecommerce-api\\service\\dtos\\sliderdtos\\sliderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|solutionrelative:service\\dtos\\sliderdtos\\sliderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|c:\\users\\oruj\\desktop\\ecommerce\\ecommerce-api\\service\\services\\sliderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|solutionrelative:service\\services\\sliderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{965DB42A-A3E6-405A-A693-DB7CE4A6852C}|Ecommerce-API\\Ecommerce-API.csproj|c:\\users\\oruj\\desktop\\ecommerce\\ecommerce-api\\ecommerce-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{965DB42A-A3E6-405A-A693-DB7CE4A6852C}|Ecommerce-API\\Ecommerce-API.csproj|solutionrelative:ecommerce-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|c:\\users\\oruj\\documents\\projects\\ecommerce\\ecommerce-api\\service\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|solutionrelative:service\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,92 +14,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Ecommerce-API\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "Ecommerce-API\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Ecommerce-API\\appsettings.Development.json",
-              "RelativeToolTip": "Ecommerce-API\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-16T18:02:32.953Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Service\\Services\\AccountService.cs",
-              "RelativeDocumentMoniker": "Service\\Services\\AccountService.cs",
-              "ToolTip": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Service\\Services\\AccountService.cs",
-              "RelativeToolTip": "Service\\Services\\AccountService.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAgwLMAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T17:40:30.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Ecommerce-API\\Controllers\\UI\\AccountController.cs",
-              "RelativeDocumentMoniker": "Ecommerce-API\\Controllers\\UI\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Ecommerce-API\\Controllers\\UI\\AccountController.cs",
-              "RelativeToolTip": "Ecommerce-API\\Controllers\\UI\\AccountController.cs",
-              "ViewState": "AgIAALMAAAAAAAAAAAAuwMgAAAAYAAAAAAAAAA==",
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Service\\Services\\CategoryService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\CategoryService.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Service\\Services\\CategoryService.cs",
+              "RelativeToolTip": "Service\\Services\\CategoryService.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwDcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T17:40:12.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Ecommerce-API\\Program.cs",
-              "RelativeDocumentMoniker": "Ecommerce-API\\Program.cs",
-              "ToolTip": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Ecommerce-API\\Program.cs",
-              "RelativeToolTip": "Ecommerce-API\\Program.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAEQAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T17:39:33.514Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SliderService.cs",
-              "DocumentMoniker": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Service\\Services\\SliderService.cs",
-              "RelativeDocumentMoniker": "Service\\Services\\SliderService.cs",
-              "ToolTip": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Service\\Services\\SliderService.cs",
-              "RelativeToolTip": "Service\\Services\\SliderService.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwDYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T15:37:40.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SliderDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Service\\DTOs\\SliderDTOs\\SliderDTO.cs",
-              "RelativeDocumentMoniker": "Service\\DTOs\\SliderDTOs\\SliderDTO.cs",
-              "ToolTip": "C:\\Users\\Oruj\\Desktop\\Ecommerce\\Ecommerce-API\\Service\\DTOs\\SliderDTOs\\SliderDTO.cs",
-              "RelativeToolTip": "Service\\DTOs\\SliderDTOs\\SliderDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T15:21:55.824Z",
+              "WhenOpened": "2025-06-17T08:11:53.448Z",
               "EditorCaption": ""
             }
           ]

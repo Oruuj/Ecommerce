@@ -424,11 +424,18 @@
                 "properties": {
                   "Name": {
                     "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
                   }
                 }
               },
               "encoding": {
                 "Name": {
+                  "style": "form"
+                },
+                "ImageFile": {
                   "style": "form"
                 }
               }
@@ -459,6 +466,10 @@
                   },
                   "Name": {
                     "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
                   }
                 }
               },
@@ -467,6 +478,9 @@
                   "style": "form"
                 },
                 "Name": {
+                  "style": "form"
+                },
+                "ImageFile": {
                   "style": "form"
                 }
               }
@@ -1383,6 +1397,10 @@
             "format": "int32"
           },
           "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
             "type": "string",
             "nullable": true
           },

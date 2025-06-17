@@ -61,7 +61,7 @@ const Profile = () => {
               </div>
               <div className="user-name">
                 <span>Hi, </span>
-                <span className="font-semibold text-2xl">{profile?.FullName || "Loading..."}</span>
+                <span className="font-semibold text-2xl">{profile?.fullName || "Loading..."}</span>
 
               </div>
             </div>
@@ -109,7 +109,7 @@ const Profile = () => {
                     <input
                       id="fullName"
                       type="text"
-                      placeholder="Oruj Hasanov"
+                      placeholder={profile?.fullName || "Loading..."}
                     />
                   </div>
                   <div className="form">
@@ -117,12 +117,8 @@ const Profile = () => {
                     <input
                       id="email"
                       type="email"
-                      placeholder="oruj@example.com"
+                      placeholder={profile?.email || "Loading..."}
                     />
-                  </div>
-                  <div className="form">
-                    <label htmlFor="phone">Phone</label>
-                    <input id="phone" type="text" placeholder="+1234567890" />
                   </div>
                   <button className="btn-apply">Apply</button>
                 </motion.div>
