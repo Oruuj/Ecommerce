@@ -45,6 +45,7 @@ namespace Service.Services
                 Brand = entity.Brand,
                 StockQuantity = entity.StockQuantity,
                 CategoryId = entity.CategoryId,
+                CreatedAt = DateTime.UtcNow,
                 ProductFeatures = new List<ProductFeature>(),
                 ProductImages = new List<ProductImage>()
             };
@@ -187,6 +188,11 @@ namespace Service.Services
 
         public async Task<ProductDTO> GetByIdAsync(int id) => _mapper.Map<ProductDTO>(await _repository.GetByIdAsync(id));
 
-        
+        public async Task<IEnumerable<ProductDTO>> GetAllWithInclude() => _mapper.Map<IEnumerable<ProductDTO>>(await _repository.GetAllWithInclude());
+
+        public async Task<ProductDTO> GetByIdWithIncludeAsync(int id)
+        {
+            return _mapper.Map<ProductDTO>(await _repository.GetByIdWithIncludeAsync(id));
+        }
     }
 }

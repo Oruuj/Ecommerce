@@ -17,5 +17,7 @@ namespace Service.Services.Interfaces
         Task<CreateResponse> DeleteAsync(int id);
         Task<IEnumerable<ProductDTO>> GetAllAsync();
         Task<ProductDTO> GetByIdAsync(int id);
+        Task<ProductDTO> GetByIdWithIncludeAsync(int id);
+        Task<IEnumerable<ProductDTO>> GetAllWithInclude();
     }
 }

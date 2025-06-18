@@ -1627,3 +1627,242 @@ WHERE [a].[Id] = @__p_0
 2025-06-17 12:31:53.682 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.AccountController.GetProfile (Ecommerce-API) in 3.0486ms
 2025-06-17 12:31:53.683 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.AccountController.GetProfile (Ecommerce-API)'
 2025-06-17 12:31:53.683 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Account/UI/GetProfile - 200 null application/json; charset=utf-8 9.9172ms
+2025-06-17 18:45:58.647 +04:00 [INF] User profile is available. Using 'C:\Users\Oruj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-17 18:45:58.799 +04:00 [INF] Now listening on: https://localhost:7279
+2025-06-17 18:45:58.800 +04:00 [INF] Now listening on: http://localhost:5206
+2025-06-17 18:45:58.852 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-17 18:45:58.853 +04:00 [INF] Hosting environment: Development
+2025-06-17 18:45:58.853 +04:00 [INF] Content root path: C:\Users\Oruj\Documents\Projects\Ecommerce\Ecommerce-API\Ecommerce-API
+2025-06-17 18:45:59.148 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 18:45:59.148 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/_vs/browserLink - null null
+2025-06-17 18:45:59.157 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 10.5351ms
+2025-06-17 18:45:59.222 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/_vs/browserLink - 200 null text/javascript; charset=UTF-8 75.8719ms
+2025-06-17 18:45:59.255 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/swagger/v1/swagger.json - null null
+2025-06-17 18:45:59.284 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.7613ms
+2025-06-17 18:46:02.617 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/undefined - null null
+2025-06-17 18:46:02.621 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Category/UI/GetAll - null null
+2025-06-17 18:46:02.621 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/1 - null null
+2025-06-17 18:46:02.622 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/2 - null null
+2025-06-17 18:46:02.627 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:02.627 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:02.628 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:02.640 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/undefined - 404 0 null 22.7448ms
+2025-06-17 18:46:02.641 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:02.641 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:02.641 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API)'
+2025-06-17 18:46:02.643 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7279/undefined, Response status code: 404
+2025-06-17 18:46:02.657 +04:00 [INF] Route matched with {action = "GetById", controller = "Slider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Ecommerce_API.Controllers.UI.SliderController (Ecommerce-API).
+2025-06-17 18:46:02.657 +04:00 [INF] Route matched with {action = "GetAll", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Ecommerce_API.Controllers.UI.CategoryController (Ecommerce-API).
+2025-06-17 18:46:02.657 +04:00 [INF] Route matched with {action = "GetById", controller = "Slider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Ecommerce_API.Controllers.UI.SliderController (Ecommerce-API).
+2025-06-17 18:46:03.072 +04:00 [WRN] No store type was specified for the decimal property 'DiscountedPrice' on entity type 'BasketItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 18:46:03.074 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'BasketItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 18:46:03.075 +04:00 [WRN] No store type was specified for the decimal property 'DiscountPercentage' on entity type 'Discount'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 18:46:03.076 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 18:46:03.485 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/undefined - null null
+2025-06-17 18:46:03.488 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/undefined - 404 0 null 3.6533ms
+2025-06-17 18:46:03.488 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Category/UI/GetAll - null null
+2025-06-17 18:46:03.488 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/1 - null null
+2025-06-17 18:46:03.489 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/2 - null null
+2025-06-17 18:46:03.491 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7279/undefined, Response status code: 404
+2025-06-17 18:46:03.494 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.496 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.497 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.499 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API)'
+2025-06-17 18:46:03.499 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.501 +04:00 [INF] Route matched with {action = "GetById", controller = "Slider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Ecommerce_API.Controllers.UI.SliderController (Ecommerce-API).
+2025-06-17 18:46:03.501 +04:00 [INF] Route matched with {action = "GetAll", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Ecommerce_API.Controllers.UI.CategoryController (Ecommerce-API).
+2025-06-17 18:46:03.500 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.505 +04:00 [INF] Route matched with {action = "GetById", controller = "Slider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Ecommerce_API.Controllers.UI.SliderController (Ecommerce-API).
+2025-06-17 18:46:03.576 +04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[ButtonText], [s].[ButtonUrl], [s].[Description], [s].[ImageUrl], [s].[Title]
+FROM [Sliders] AS [s]
+WHERE [s].[Id] = @__id_0
+2025-06-17 18:46:03.576 +04:00 [INF] Executed DbCommand (33ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[ButtonText], [s].[ButtonUrl], [s].[Description], [s].[ImageUrl], [s].[Title]
+FROM [Sliders] AS [s]
+WHERE [s].[Id] = @__id_0
+2025-06-17 18:46:03.576 +04:00 [INF] Executed DbCommand (24ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[ButtonText], [s].[ButtonUrl], [s].[Description], [s].[ImageUrl], [s].[Title]
+FROM [Sliders] AS [s]
+WHERE [s].[Id] = @__id_0
+2025-06-17 18:46:03.576 +04:00 [INF] Executed DbCommand (33ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[ButtonText], [s].[ButtonUrl], [s].[Description], [s].[ImageUrl], [s].[Title]
+FROM [Sliders] AS [s]
+WHERE [s].[Id] = @__id_0
+2025-06-17 18:46:03.576 +04:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[ImageUrl], [c].[Name]
+FROM [Categories] AS [c]
+2025-06-17 18:46:03.576 +04:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[ImageUrl], [c].[Name]
+FROM [Categories] AS [c]
+2025-06-17 18:46:03.595 +04:00 [INF] Retrieved all categories successfully.
+2025-06-17 18:46:03.595 +04:00 [INF] Retrieved slider with ID 2 successfully.
+2025-06-17 18:46:03.595 +04:00 [INF] Retrieved all categories successfully.
+2025-06-17 18:46:03.595 +04:00 [INF] Retrieved slider with ID 1 successfully.
+2025-06-17 18:46:03.595 +04:00 [INF] Retrieved slider with ID 2 successfully.
+2025-06-17 18:46:03.595 +04:00 [INF] Retrieved slider with ID 1 successfully.
+2025-06-17 18:46:03.602 +04:00 [INF] Executing OkObjectResult, writing value of type 'Service.DTOs.SliderDTOs.SliderDTO'.
+2025-06-17 18:46:03.602 +04:00 [INF] Executing OkObjectResult, writing value of type 'Service.DTOs.SliderDTOs.SliderDTO'.
+2025-06-17 18:46:03.602 +04:00 [INF] Executing OkObjectResult, writing value of type 'Service.DTOs.SliderDTOs.SliderDTO'.
+2025-06-17 18:46:03.602 +04:00 [INF] Executing OkObjectResult, writing value of type 'Service.DTOs.SliderDTOs.SliderDTO'.
+2025-06-17 18:46:03.603 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Service.DTOs.CategoryDTOs.CategoryDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-17 18:46:03.603 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Service.DTOs.CategoryDTOs.CategoryDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-17 18:46:03.608 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/1 - null null
+2025-06-17 18:46:03.608 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/2 - null null
+2025-06-17 18:46:03.608 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API) in 100.5385ms
+2025-06-17 18:46:03.608 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API) in 103.692ms
+2025-06-17 18:46:03.608 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API) in 947.2924ms
+2025-06-17 18:46:03.608 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API) in 949.5873ms
+2025-06-17 18:46:03.610 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.615 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API) in 955.1509ms
+2025-06-17 18:46:03.613 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.613 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.614 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.614 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.615 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API) in 111.0645ms
+2025-06-17 18:46:03.612 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.615 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.616 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Category/UI/GetAll - null null
+2025-06-17 18:46:03.616 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API)'
+2025-06-17 18:46:03.620 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API)'
+2025-06-17 18:46:03.621 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.621 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/images/8d0137c5-c578-45d8-a054-204ba63dbaff---Group-2.png - null null
+2025-06-17 18:46:03.621 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/1 - 200 null application/json; charset=utf-8 132.8451ms
+2025-06-17 18:46:03.621 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/1 - 499 null application/json; charset=utf-8 999.9742ms
+2025-06-17 18:46:03.621 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/2 - 499 null application/json; charset=utf-8 999.7716ms
+2025-06-17 18:46:03.621 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/2 - 200 null application/json; charset=utf-8 132.4792ms
+2025-06-17 18:46:03.622 +04:00 [INF] Route matched with {action = "GetById", controller = "Slider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Ecommerce_API.Controllers.UI.SliderController (Ecommerce-API).
+2025-06-17 18:46:03.623 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.624 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Category/UI/GetAll - 499 null application/json; charset=utf-8 1002.5119ms
+2025-06-17 18:46:03.624 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/images/a1142968-17b4-42ea-964a-3b43ca2618ef---Banner-2.png - null null
+2025-06-17 18:46:03.625 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Category/UI/GetAll - 200 null application/json; charset=utf-8 136.2028ms
+2025-06-17 18:46:03.626 +04:00 [INF] Route matched with {action = "GetById", controller = "Slider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Ecommerce_API.Controllers.UI.SliderController (Ecommerce-API).
+2025-06-17 18:46:03.631 +04:00 [INF] The file /images/8d0137c5-c578-45d8-a054-204ba63dbaff---Group-2.png was not modified
+2025-06-17 18:46:03.634 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/images/313755d7-247d-4ff4-be7d-8331afde4e6f---Phones.png - null null
+2025-06-17 18:46:03.634 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/images/3011196f-6366-4898-afdf-4acaa4bc4c19---Gaming.png - null null
+2025-06-17 18:46:03.634 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/images/59e57fe7-73f0-4662-beec-5ac32536bf26---Cameras.png - null null
+2025-06-17 18:46:03.634 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/images/cec1f32d-59ca-4d82-908e-f4f68a411def---Computers.png - null null
+2025-06-17 18:46:03.634 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/images/c276dd00-ed68-4ece-ad7e-ab90e2437d1a---Headphones.png - null null
+2025-06-17 18:46:03.634 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/images/9ec02099-13de-4fe2-8a09-1cf3c8927c5e---Smart Watches.png - null null
+2025-06-17 18:46:03.638 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API)'
+2025-06-17 18:46:03.643 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[ButtonText], [s].[ButtonUrl], [s].[Description], [s].[ImageUrl], [s].[Title]
+FROM [Sliders] AS [s]
+WHERE [s].[Id] = @__id_0
+2025-06-17 18:46:03.646 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/images/8d0137c5-c578-45d8-a054-204ba63dbaff---Group-2.png - 304 null image/png 24.5823ms
+2025-06-17 18:46:03.647 +04:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[ButtonText], [s].[ButtonUrl], [s].[Description], [s].[ImageUrl], [s].[Title]
+FROM [Sliders] AS [s]
+WHERE [s].[Id] = @__id_0
+2025-06-17 18:46:03.649 +04:00 [INF] The file /images/313755d7-247d-4ff4-be7d-8331afde4e6f---Phones.png was not modified
+2025-06-17 18:46:03.651 +04:00 [INF] The file /images/3011196f-6366-4898-afdf-4acaa4bc4c19---Gaming.png was not modified
+2025-06-17 18:46:03.653 +04:00 [INF] The file /images/59e57fe7-73f0-4662-beec-5ac32536bf26---Cameras.png was not modified
+2025-06-17 18:46:03.655 +04:00 [INF] The file /images/cec1f32d-59ca-4d82-908e-f4f68a411def---Computers.png was not modified
+2025-06-17 18:46:03.656 +04:00 [INF] Sending file. Request path: '/images/a1142968-17b4-42ea-964a-3b43ca2618ef---Banner-2.png'. Physical path: 'C:\Users\Oruj\Documents\Projects\Ecommerce\Ecommerce-API\Ecommerce-API\wwwroot\images\a1142968-17b4-42ea-964a-3b43ca2618ef---Banner-2.png'
+2025-06-17 18:46:03.657 +04:00 [INF] The file /images/c276dd00-ed68-4ece-ad7e-ab90e2437d1a---Headphones.png was not modified
+2025-06-17 18:46:03.658 +04:00 [INF] The file /images/9ec02099-13de-4fe2-8a09-1cf3c8927c5e---Smart Watches.png was not modified
+2025-06-17 18:46:03.659 +04:00 [INF] Route matched with {action = "GetAll", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Ecommerce_API.Controllers.UI.CategoryController (Ecommerce-API).
+2025-06-17 18:46:03.660 +04:00 [INF] Retrieved slider with ID 1 successfully.
+2025-06-17 18:46:03.663 +04:00 [INF] Retrieved slider with ID 2 successfully.
+2025-06-17 18:46:03.663 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/images/313755d7-247d-4ff4-be7d-8331afde4e6f---Phones.png - 304 null image/png 29.8771ms
+2025-06-17 18:46:03.664 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/images/3011196f-6366-4898-afdf-4acaa4bc4c19---Gaming.png - 304 null image/png 30.5912ms
+2025-06-17 18:46:03.665 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/images/59e57fe7-73f0-4662-beec-5ac32536bf26---Cameras.png - 304 null image/png 31.631ms
+2025-06-17 18:46:03.666 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/images/cec1f32d-59ca-4d82-908e-f4f68a411def---Computers.png - 304 null image/png 32.299ms
+2025-06-17 18:46:03.667 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/images/a1142968-17b4-42ea-964a-3b43ca2618ef---Banner-2.png - 200 533144 image/png 42.7079ms
+2025-06-17 18:46:03.668 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/images/c276dd00-ed68-4ece-ad7e-ab90e2437d1a---Headphones.png - 304 null image/png 33.6152ms
+2025-06-17 18:46:03.669 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/images/9ec02099-13de-4fe2-8a09-1cf3c8927c5e---Smart Watches.png - 304 null image/png 34.121ms
+2025-06-17 18:46:03.671 +04:00 [INF] Executing OkObjectResult, writing value of type 'Service.DTOs.SliderDTOs.SliderDTO'.
+2025-06-17 18:46:03.671 +04:00 [INF] Executing OkObjectResult, writing value of type 'Service.DTOs.SliderDTOs.SliderDTO'.
+2025-06-17 18:46:03.673 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[ImageUrl], [c].[Name]
+FROM [Categories] AS [c]
+2025-06-17 18:46:03.686 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API) in 48.2858ms
+2025-06-17 18:46:03.687 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API) in 41.6072ms
+2025-06-17 18:46:03.688 +04:00 [INF] Retrieved all categories successfully.
+2025-06-17 18:46:03.689 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.690 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.690 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Service.DTOs.CategoryDTOs.CategoryDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-17 18:46:03.691 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/1 - 200 null application/json; charset=utf-8 83.5691ms
+2025-06-17 18:46:03.692 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/2 - 200 null application/json; charset=utf-8 84.3254ms
+2025-06-17 18:46:03.693 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API) in 22.8659ms
+2025-06-17 18:46:03.698 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API)'
+2025-06-17 18:46:03.699 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Category/UI/GetAll - 200 null application/json; charset=utf-8 82.6166ms
+2025-06-17 18:46:03.831 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/1 - null null
+2025-06-17 18:46:03.831 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/2 - null null
+2025-06-17 18:46:03.831 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/undefined - null null
+2025-06-17 18:46:03.831 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Category/UI/GetAll - null null
+2025-06-17 18:46:03.834 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.836 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.837 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/undefined - 404 0 null 6.125ms
+2025-06-17 18:46:03.839 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.840 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.841 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.843 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7279/undefined, Response status code: 404
+2025-06-17 18:46:03.844 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API)'
+2025-06-17 18:46:03.845 +04:00 [INF] Route matched with {action = "GetById", controller = "Slider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Ecommerce_API.Controllers.UI.SliderController (Ecommerce-API).
+2025-06-17 18:46:03.845 +04:00 [INF] Route matched with {action = "GetById", controller = "Slider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Ecommerce_API.Controllers.UI.SliderController (Ecommerce-API).
+2025-06-17 18:46:03.848 +04:00 [INF] Route matched with {action = "GetAll", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Ecommerce_API.Controllers.UI.CategoryController (Ecommerce-API).
+2025-06-17 18:46:03.852 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[ButtonText], [s].[ButtonUrl], [s].[Description], [s].[ImageUrl], [s].[Title]
+FROM [Sliders] AS [s]
+WHERE [s].[Id] = @__id_0
+2025-06-17 18:46:03.852 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[ButtonText], [s].[ButtonUrl], [s].[Description], [s].[ImageUrl], [s].[Title]
+FROM [Sliders] AS [s]
+WHERE [s].[Id] = @__id_0
+2025-06-17 18:46:03.854 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[ImageUrl], [c].[Name]
+FROM [Categories] AS [c]
+2025-06-17 18:46:03.854 +04:00 [INF] Retrieved slider with ID 1 successfully.
+2025-06-17 18:46:03.856 +04:00 [INF] Retrieved slider with ID 2 successfully.
+2025-06-17 18:46:03.858 +04:00 [INF] Retrieved all categories successfully.
+2025-06-17 18:46:03.858 +04:00 [INF] Executing OkObjectResult, writing value of type 'Service.DTOs.SliderDTOs.SliderDTO'.
+2025-06-17 18:46:03.859 +04:00 [INF] Executing OkObjectResult, writing value of type 'Service.DTOs.SliderDTOs.SliderDTO'.
+2025-06-17 18:46:03.860 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Service.DTOs.CategoryDTOs.CategoryDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-17 18:46:03.861 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API) in 11.6126ms
+2025-06-17 18:46:03.862 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/1 - null null
+2025-06-17 18:46:03.862 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API) in 11.4058ms
+2025-06-17 18:46:03.862 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/2 - null null
+2025-06-17 18:46:03.863 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API) in 10.9591ms
+2025-06-17 18:46:03.863 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7279/api/Category/UI/GetAll - null null
+2025-06-17 18:46:03.864 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.866 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.867 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.869 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.870 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API)'
+2025-06-17 18:46:03.872 +04:00 [INF] CORS policy execution successful.
+2025-06-17 18:46:03.873 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/1 - 200 null application/json; charset=utf-8 41.2688ms
+2025-06-17 18:46:03.873 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.874 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/2 - 200 null application/json; charset=utf-8 42.6432ms
+2025-06-17 18:46:03.874 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.875 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Category/UI/GetAll - 200 null application/json; charset=utf-8 44.0377ms
+2025-06-17 18:46:03.876 +04:00 [INF] Executing endpoint 'Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API)'
+2025-06-17 18:46:03.879 +04:00 [INF] Route matched with {action = "GetById", controller = "Slider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Ecommerce_API.Controllers.UI.SliderController (Ecommerce-API).
+2025-06-17 18:46:03.882 +04:00 [INF] Route matched with {action = "GetById", controller = "Slider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Ecommerce_API.Controllers.UI.SliderController (Ecommerce-API).
+2025-06-17 18:46:03.885 +04:00 [INF] Route matched with {action = "GetAll", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Ecommerce_API.Controllers.UI.CategoryController (Ecommerce-API).
+2025-06-17 18:46:03.889 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[ButtonText], [s].[ButtonUrl], [s].[Description], [s].[ImageUrl], [s].[Title]
+FROM [Sliders] AS [s]
+WHERE [s].[Id] = @__id_0
+2025-06-17 18:46:03.889 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[ButtonText], [s].[ButtonUrl], [s].[Description], [s].[ImageUrl], [s].[Title]
+FROM [Sliders] AS [s]
+WHERE [s].[Id] = @__id_0
+2025-06-17 18:46:03.890 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[ImageUrl], [c].[Name]
+FROM [Categories] AS [c]
+2025-06-17 18:46:03.891 +04:00 [INF] Retrieved slider with ID 1 successfully.
+2025-06-17 18:46:03.892 +04:00 [INF] Retrieved slider with ID 2 successfully.
+2025-06-17 18:46:03.893 +04:00 [INF] Retrieved all categories successfully.
+2025-06-17 18:46:03.894 +04:00 [INF] Executing OkObjectResult, writing value of type 'Service.DTOs.SliderDTOs.SliderDTO'.
+2025-06-17 18:46:03.894 +04:00 [INF] Executing OkObjectResult, writing value of type 'Service.DTOs.SliderDTOs.SliderDTO'.
+2025-06-17 18:46:03.895 +04:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Service.DTOs.CategoryDTOs.CategoryDTO, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-17 18:46:03.895 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API) in 9.4912ms
+2025-06-17 18:46:03.897 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API) in 9.7885ms
+2025-06-17 18:46:03.898 +04:00 [INF] Executed action Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API) in 9.6006ms
+2025-06-17 18:46:03.898 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.899 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.SliderController.GetById (Ecommerce-API)'
+2025-06-17 18:46:03.900 +04:00 [INF] Executed endpoint 'Ecommerce_API.Controllers.UI.CategoryController.GetAll (Ecommerce-API)'
+2025-06-17 18:46:03.900 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/1 - 200 null application/json; charset=utf-8 38.7589ms
+2025-06-17 18:46:03.901 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Slider/UI/GetById/2 - 200 null application/json; charset=utf-8 38.742ms
+2025-06-17 18:46:03.902 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7279/api/Category/UI/GetAll - 200 null application/json; charset=utf-8 38.6839ms

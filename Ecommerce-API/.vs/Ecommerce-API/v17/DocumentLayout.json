@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|c:\\users\\oruj\\documents\\projects\\ecommerce\\ecommerce-api\\service\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|solutionrelative:service\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|c:\\users\\oruj\\documents\\projects\\ecommerce\\ecommerce-api\\service\\helpers\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|solutionrelative:service\\helpers\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|c:\\users\\oruj\\documents\\projects\\ecommerce\\ecommerce-api\\service\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD60ECA4-697D-4FE0-B72F-EE617EAFB2AF}|Service\\Service.csproj|solutionrelative:service\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B4FCD2C-12FC-4113-BB82-D5103AD8F72C}|Repository\\Repository.csproj|c:\\users\\oruj\\documents\\projects\\ecommerce\\ecommerce-api\\repository\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B4FCD2C-12FC-4113-BB82-D5103AD8F72C}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C5B2B02-4E47-442A-B608-60152375819B}|Domain\\Domain.csproj|c:\\users\\oruj\\documents\\projects\\ecommerce\\ecommerce-api\\domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C5B2B02-4E47-442A-B608-60152375819B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B4FCD2C-12FC-4113-BB82-D5103AD8F72C}|Repository\\Repository.csproj|c:\\users\\oruj\\documents\\projects\\ecommerce\\ecommerce-api\\repository\\repositories\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B4FCD2C-12FC-4113-BB82-D5103AD8F72C}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +39,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CategoryService.cs",
-              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Service\\Services\\CategoryService.cs",
-              "RelativeDocumentMoniker": "Service\\Services\\CategoryService.cs",
-              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Service\\Services\\CategoryService.cs",
-              "RelativeToolTip": "Service\\Services\\CategoryService.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAQwDcAAAANAAAAAAAAAA==",
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Service\\Helpers\\Mapping\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Service\\Helpers\\Mapping\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Service\\Helpers\\Mapping\\MappingProfile.cs",
+              "RelativeToolTip": "Service\\Helpers\\Mapping\\MappingProfile.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwC8AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T08:11:53.448Z",
+              "WhenOpened": "2025-06-18T07:58:14.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Service\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\ProductService.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Service\\Services\\ProductService.cs",
+              "RelativeToolTip": "Service\\Services\\ProductService.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAgwMYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T07:57:48.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Domain\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Product.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Domain\\Entities\\Product.cs",
+              "RelativeToolTip": "Domain\\Entities\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T07:56:24.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Repository\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\ProductRepository.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Repository\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAowCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T07:49:45.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Repository\\Repositories\\Interfaces\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\Interfaces\\IProductRepository.cs",
+              "ToolTip": "C:\\Users\\Oruj\\Documents\\Projects\\Ecommerce\\Ecommerce-API\\Repository\\Repositories\\Interfaces\\IProductRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\Interfaces\\IProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T05:30:03.754Z",
               "EditorCaption": ""
             }
           ]

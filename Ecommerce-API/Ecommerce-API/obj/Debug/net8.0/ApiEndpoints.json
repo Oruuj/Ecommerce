@@ -618,6 +618,16 @@
   },
   {
     "ContainingType": "Ecommerce_API.Controllers.UI.ProductController",
+    "Method": "GetAllWithInclude",
+    "RelativePath": "api/Product/UI/GetAllWithInclude",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.UI.ProductController",
     "Method": "GetById",
     "RelativePath": "api/Product/UI/GetById",
     "HttpMethod": "GET",
@@ -628,6 +638,22 @@
         "Name": "Id",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce_API.Controllers.UI.ProductController",
+    "Method": "GetByIdWithIncludeAsync",
+    "RelativePath": "api/Product/UI/GetByIdWithInclude/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

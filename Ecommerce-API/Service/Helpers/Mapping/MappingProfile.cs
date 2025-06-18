@@ -18,7 +18,8 @@ namespace Service.Helpers.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Product, ProductDTO>().ReverseMap();
+            CreateMap<Product, ProductDTO>()
+            .ForMember(dest => dest.Discounts, opt => opt.MapFrom(src => src.DiscountProducts.Select(dp => dp.Discount)));
             CreateMap<Product, ProductCreateDTO>().ReverseMap();
             CreateMap<Product, ProductUpdateDTO>().ReverseMap();
 
@@ -43,6 +44,15 @@ namespace Service.Helpers.Mapping
             CreateMap<Slider, SliderDTO>().ReverseMap();
             CreateMap<Slider, SliderCreateDTO>().ReverseMap();
             CreateMap<Slider, SliderUpdateDTO>().ReverseMap();
+
+            CreateMap<DiscountProduct, DiscountDTO>()
+            .ForMember(dest => dest.DiscountPercentage, opt => opt.MapFrom(src => src.Discount.DiscountPercentage))
+            .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.Discount.EndDate))
+            .ForMember(dest => dest.StartDate, opt => opt.MapFrom(src => src.Discount.StartDate));
+            CreateMap<ProductImage, ProductImageDTO>();
+
+
+
         }
     }
 }

@@ -14,5 +14,12 @@ namespace Ecommerce_API.Controllers.UI
         public async Task<IActionResult> GetAll() => Ok(await _productService.GetAllAsync());
         [HttpGet]
         public async Task<IActionResult> GetById([FromQuery] int Id) => Ok(await _productService.GetByIdAsync(Id));
+        [HttpGet]
+        public async Task<IActionResult> GetAllWithInclude() => Ok(await _productService.GetAllWithInclude());
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdWithIncludeAsync(int id)
+        {
+            return Ok(await _productService.GetByIdWithIncludeAsync(id));
+        }
     }
 }

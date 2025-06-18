@@ -9,7 +9,6 @@ const MainBanner = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('/api/Slider/UI/GetById/1');
-                console.log("API Response:", response.data);
                 setSliderData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);

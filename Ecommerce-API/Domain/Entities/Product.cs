@@ -14,6 +14,7 @@ namespace Domain.Entities
         public decimal Price { get; set; }
         public string Brand { get; set; }
         public int StockQuantity { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public ICollection<ProductFeature> ProductFeatures { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Repository.Data;
 using Repository.Repositories.Interfaces;
 using System;
@@ -16,5 +17,26 @@ namespace Repository.Repositories
         {
             _context = dbContext;
         }
+        public async Task<IEnumerable<Product>> GetAllWithInclude()
+        {
+            return await _context.Products
+                .Include(mbox=>mbox.ProductImages)
+                .Include(mbox=>mbox.ProductFeatures)
+                .Include(mbox=>mbox.Category)
+                .Include(mbox=>mbox.DiscountProducts)
+                .ThenInclude(mbox => mbox.Discount)
+                .ToListAsync();
+        }
+        public async Task<Product> GetByIdWithIncludeAsync(int id)
+        {
+               return await _context.Products
+                .Include(mbox=>mbox.ProductImages)
+                .Include(mbox=>mbox.ProductFeatures)
+                .Include(mbox=>mbox.Category)
+                .Include(mbox=>mbox.DiscountProducts)
+                .ThenInclude(mbox => mbox.Discount)
+                .FirstOrDefaultAsync(mbox=>mbox.Id == id);
+        }
+
     }
 }
