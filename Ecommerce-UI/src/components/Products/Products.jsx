@@ -68,6 +68,7 @@ const Products = () => {
               id={product.id}
               title={product.name}
               price={product.price}
+              quantity={product.stockquantity}
               oldPrice={
                 product.discounts?.[0]?.oldPrice || product.price
               }

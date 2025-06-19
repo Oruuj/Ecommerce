@@ -1,37 +1,15 @@
 .Container {
     width: 831px;
     margin-bottom: 50px;
+
     .title {
         .filter {
             width: 200px;
         }
     }
-    .products {
-        .product {
-            background-color: #f6f6f6;
-            width: 268px;
-            height: 432px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            .img {
-                img {
-                }
-            }
-            .content {
-                .btn {
-                    width: 188px;
-                    height: 48px;
-                    border-radius: 9px;
-                    background-color: black;
-                    color: white;
-                }
-                .title {
-                    text-align: center;
-                }
-            }
-        }
-    }
+
+
+
     @media (max-width: 64rem) {
         .title {
             transform: translate(110px, 0px);
@@ -44,6 +22,7 @@
             transform: translate(129px, 0px);
             width: 35%;
         }
+
         .count {
             display: none;
         }

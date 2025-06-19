@@ -1,29 +1,31 @@
-import { createContext, useState, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
+import axios from '../api/axios';
 
 const BasketContext = createContext();
-
-export const useBasket = () => useContext(BasketContext);
 
 export const BasketProvider = ({ children }) => {
   const [basket, setBasket] = useState(null);
 
   const fetchBasket = async (buyerId) => {
-    const res = await fetch(`/api/basket/${buyerId}`);
-    if (res.ok) setBasket(await res.json());
+    const response = await axios.get(`/api/basket/${buyerId}`);
+    setBasket(response.data);
   };
 
   const addItem = async (buyerId, product) => {
-    const res = await fetch(`/api/basket?buyerId=${buyerId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(product)
-    });
-    if (res.ok) setBasket(await res.json());
+    await axios.post(`/api/basket/${buyerId}`, product);
+    fetchBasket(buyerId);
+  };
+
+  const removeItem = async (buyerId, productId) => {
+    await axios.delete(`/api/basket/${buyerId}/${productId}`);
+    fetchBasket(buyerId);
   };
 
   return (
-    <BasketContext.Provider value={{ basket, fetchBasket, addItem }}>
+    <BasketContext.Provider value={{ basket, fetchBasket, addItem, removeItem }}>
       {children}
     </BasketContext.Provider>
   );
 };
+
+export const useBasket = () => useContext(BasketContext);

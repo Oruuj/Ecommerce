@@ -55,6 +55,7 @@ const Discount = () => {
                                 title={product.name}
                                 price={discountedPrice}
                                 oldPrice={product.price}
+                                quantity={product.stockquantity}
                                 image={product.productImages?.[0]?.image}
                             />
                         );

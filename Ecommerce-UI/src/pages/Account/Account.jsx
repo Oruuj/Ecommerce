@@ -68,7 +68,9 @@ const Account = () => {
         }
       );
       if (response.data.succes) {
+        console.log(response.data);
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("userid", response.data.userId);
       }
       setMessage("Login successful!");
     } catch (error) {

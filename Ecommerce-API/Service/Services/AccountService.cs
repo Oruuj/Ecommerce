@@ -116,7 +116,7 @@ namespace Service.Services
 
             var token = GenerateJwtToken(user.Id, roles.ToList());
 
-            return new LoginResponse { Succes = true, ErrorMessage = null, Token = token };
+            return new LoginResponse { Succes = true, ErrorMessage = null, Token = token ,UserId=user.Id};
         }
 
         public async Task<RegisterResponse> Register(RegisterDTO entity)

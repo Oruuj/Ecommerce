@@ -5,22 +5,24 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
-    .title {
-    }
-    .products {
-    }
+
+    .title {}
+
   }
-  @media (width <= 80rem) {
+
+  @media (width <=80rem) {
     .product-container {
       max-width: 920px;
     }
   }
-  @media (width <= 64rem) {
+
+  @media (width <=64rem) {
     .product-container {
       max-width: 620px;
     }
   }
-  @media (width <= 48rem) {
+
+  @media (width <=48rem) {
     .product-container {
       max-width: 260px;
     }

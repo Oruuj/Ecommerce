@@ -22,6 +22,7 @@ const Header = ({ page }) => {
   const isLoggedIn = !!token;
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('userid');
     navigate('/account');
   };
   return (

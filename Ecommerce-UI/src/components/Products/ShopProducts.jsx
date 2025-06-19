@@ -7,11 +7,11 @@ import {
   Pagination,
 } from "@mui/material";
 import "./ShopProducts.scss";
-import img from "../../assets/Iphone.png";
 import { useNavigate } from "react-router-dom";
 import Product from "./Product";
+import axios from "../../api/axios";
 
-const ShopProducts = () => {
+const ShopProducts = ({ selectedBrands, selectedCategories }) => {
   const [products, setProducts] = useState([]);
   const [sortOption, setSortOption] = useState("");
   const [page, setPage] = useState(1);
@@ -21,30 +21,28 @@ const ShopProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch(
-        `https://api.example.com/products?page=${page}&pageSize=${pageSize}&sort=${sortOption}`
-      );
-      const data = await res.json();
-      setProducts(data.items);
-      setTotalPages(data.totalPages);
+      const brandsQuery = selectedBrands && selectedBrands.length > 0 ? `&brands=${selectedBrands.join(",")}` : "";
+      const categoryQuery = selectedCategories && selectedCategories.length > 0 ? `&categories=${selectedCategories.join(",")}` : "";
+
+      const response = await axios.get(`/api/Product/UI/GetWithPagination?page=${page}&pageSize=${pageSize}&sort=${sortOption}${brandsQuery}${categoryQuery}`);
+      const data = response.data;
+      setProducts(data.items || data);
+      setTotalPages(data.totalPages || 1);
+      console.log("Fetched products:", data.items || data);
     } catch (error) {
-      console.error(error);
+      console.error("Failed to fetch products:", error);
     }
   };
-
   useEffect(() => {
     fetchProducts();
-  }, [page, sortOption]);
-
+  }, [page, sortOption, selectedBrands, selectedCategories]);
   const handleSortChange = (event) => {
     setSortOption(event.target.value);
     setPage(1);
   };
-
   const handlePageChange = (event, value) => {
     setPage(value);
   };
-
   return (
     <div className="Container">
       <div className="title flex justify-between">
@@ -72,15 +70,20 @@ const ShopProducts = () => {
       </div>
 
       <div className="products grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-6 items-center">
-        {products.map((product) => (
-          <Product
-            id={product.id}
-            title={product.title}
-            price={product.price}
-            oldPrice={product.oldPrice}
-            image={product.image}
-          />
-        ))}
+        {products.map((product) => {
+          const mainImage = `${product.productImages[0].image}`;
+          return (
+            <Product
+              key={product.id}
+              id={product.id}
+              title={product.name}
+              price={product.price}
+              oldPrice={product.oldPrice}
+              quantity={product.stockquantity}
+              image={mainImage}
+            />
+          );
+        })}
       </div>
 
       <div className="pagination mt-10 flex justify-center">

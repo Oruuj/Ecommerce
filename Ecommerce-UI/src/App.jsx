@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import Lenis from "@studio-freight/lenis";
+
 import HomePage from "./pages/Home/HomePage";
 import ShopPage from "./pages/Shop/ShopPage";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
@@ -9,12 +11,9 @@ import Account from "./pages/Account/Account";
 import Detail from "./pages/Detail/Detail";
 import Profile from "./pages/Profile/Profile";
 import Contact from "./pages/Contact/contact";
-import "./App.css";
-import Lenis from "@studio-freight/lenis";
 
 import { BasketProvider } from './Context/BasketContext';
-
-
+import "./App.css";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -25,140 +24,44 @@ function AnimatedRoutes() {
     out: { opacity: 0, y: -10 },
   };
 
-  const pageTransition = {
-    duration: 0.3,
-  };
+  const pageTransition = { duration: 0.3 };
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route
-          path="/"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-              style={{ minHeight: "100vh" }}
-            >
-              <HomePage />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/Shop"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-              style={{ minHeight: "100vh" }}
-            >
-              <ShopPage />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/ShoppingCart"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-              style={{ minHeight: "100vh" }}
-            >
-              <ShoppingCart />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/Wishlist"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-              style={{ minHeight: "100vh" }}
-            >
-              <Wishlist />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/account"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-              style={{ minHeight: "100vh" }}
-            >
-              <Account />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/Detail"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-              style={{ minHeight: "100vh" }}
-            >
-              <Detail />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/Profile"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-              style={{ minHeight: "100vh" }}
-            >
-              <Profile />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-              style={{ minHeight: "100vh" }}
-            >
-              <Contact />
-            </motion.div>
-          }
-        />
+        {[
+          { path: "/", component: <HomePage /> },
+          { path: "/Shop", component: <ShopPage /> },
+          { path: "/ShoppingCart", component: <ShoppingCart /> },
+          { path: "/Wishlist", component: <Wishlist /> },
+          { path: "/Account", component: <Account /> },
+          { path: "/Detail", component: <Detail /> },
+          { path: "/Profile", component: <Profile /> },
+          { path: "/Contact", component: <Contact /> },
+        ].map(({ path, component }) => (
+          <Route
+            key={path}
+            path={path}
+            element={
+              <motion.div
+                initial="initial"
+                animate="in"
+                exit="out"
+                variants={pageVariants}
+                transition={pageTransition}
+                style={{ minHeight: "100vh" }}
+              >
+                {component}
+              </motion.div>
+            }
+          />
+        ))}
       </Routes>
     </AnimatePresence>
   );
 }
 
 function App() {
-
   useEffect(() => {
     const lenis = new Lenis({ smooth: true });
 
@@ -168,11 +71,9 @@ function App() {
     };
 
     requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
+    return () => lenis.destroy();
   }, []);
+
   return (
     <BrowserRouter>
       <BasketProvider>

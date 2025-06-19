@@ -15,7 +15,6 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 📄 Serilog konfiqurasiya
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .WriteTo.Console()
@@ -24,13 +23,10 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-// 📄 DB konfiqurasiya
 var conString = builder.Configuration.GetConnectionString("Default")
     ?? throw new InvalidOperationException("Connection string 'Default' not found.");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(conString));
-
-// 📄 Identity
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedEmail = true;
@@ -38,7 +34,6 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 
-// 📄 FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
 var assemblies = AppDomain.CurrentDomain.GetAssemblies();
 foreach (var assembly in assemblies)
@@ -46,10 +41,12 @@ foreach (var assembly in assemblies)
     builder.Services.AddValidatorsFromAssembly(assembly);
 }
 
-// 📄 JwtSetting və JWT Authentication
 var jwtConfig = builder.Configuration.GetSection("JwtSetting").Get<JwtSetting>();
 
 builder.Services.Configure<JwtSetting>(builder.Configuration.GetSection("JwtSetting"));
+
+
+
 
 builder.Services.AddAuthentication(options =>
 {
@@ -58,13 +55,13 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
-    options.RequireHttpsMetadata = false; // DEV üçün HTTPS yoxlanmasın
+    options.RequireHttpsMetadata = false; 
     options.SaveToken = true;
 
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
-        ValidateAudience = false, // audience lazım deyilsə false
+        ValidateAudience = false,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
         ValidIssuer = jwtConfig.Issuer,
@@ -83,33 +80,30 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// 📄 AutoMapper, Repository və Service qatları
 builder.Services.AddAutoMapper(assemblies);
 builder.Services.AddRepositoryLayer();
 builder.Services.AddServiceLayer();
 
-// 📄 Global Exception Middleware
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-// 📄 CORS
 var frontendUrl = "http://localhost:5173";
+var frontendUrl2 = "http://localhost:3000";
+
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy.WithOrigins(frontendUrl)
+                .WithOrigins(frontendUrl2)
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
 });
 
-// --------------------------
-// ⬇️ MIDDLEWARE PIPELINE ⬇️
-// --------------------------
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

@@ -21,5 +21,10 @@ namespace Ecommerce_API.Controllers.UI
         {
             return Ok(await _productService.GetByIdWithIncludeAsync(id));
         }
+        [HttpGet]
+        public async Task<IActionResult> GetWithPagination([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] string sort = null, [FromQuery] string brands = null, string categories = null)
+        {
+            return Ok(await _productService.GetWithPagination(page, pageSize, sort, brands, categories));
+        }
     }
 }

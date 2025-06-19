@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repository.Data;
 using Repository.Repositories.Interfaces;
+using Service.DTOs.CategoryDTOs;
 using Service.DTOs.ProductDTOs;
 using Service.Helpers.Responses;
 using Service.Services.Interfaces;
@@ -21,11 +23,13 @@ namespace Service.Services
         private readonly IProductRepository _repository;
         private readonly IMapper _mapper;
         private readonly ILogger<ProductService> _logger;
+        private readonly AppDbContext _context;
         public ProductService(IProductRepository productRepository,IMapper mapper, ILogger<ProductService> logger,AppDbContext context)
         {
             _repository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
         public async Task<CreateResponse> CreateAsync(ProductCreateDTO entity)
         {
@@ -193,6 +197,71 @@ namespace Service.Services
         public async Task<ProductDTO> GetByIdWithIncludeAsync(int id)
         {
             return _mapper.Map<ProductDTO>(await _repository.GetByIdWithIncludeAsync(id));
+        }
+
+
+        public async Task<PaginationDTO> GetWithPagination(int page = 1, int pageSize = 6, string sort = null, string brands = null, string categories = null)
+        {
+            var query = _context.Products
+                .Include(p => p.ProductImages)
+                .Include(p => p.Category)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(brands))
+            {
+                var brandList = brands.Split(',').Select(b => b.Trim().ToLower()).ToList();
+                query = query.Where(p => brandList.Contains(p.Brand.ToLower()));
+            }
+
+            if (!string.IsNullOrEmpty(categories))
+            {
+                var categoryList = categories.Split(',').Select(c => c.Trim().ToLower()).ToList();
+                query = query.Where(p => categoryList.Contains(p.Category.Name.ToLower()));
+            }
+
+            query = sort switch
+            {
+                "priceLowHigh" => query.OrderBy(p => p.Price),
+                "priceHighLow" => query.OrderByDescending(p => p.Price),
+                "nameAsc" => query.OrderBy(p => p.Name),
+                "nameDesc" => query.OrderByDescending(p => p.Name),
+                _ => query.OrderByDescending(p => p.CreatedAt)
+            };
+
+            int totalCount = await query.CountAsync();
+            int totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+
+            var products = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(p => new ProductDTO
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Description = p.Description,
+                    Price = p.Price,
+                    Brand = p.Brand,
+                    StockQuantity = p.StockQuantity,
+                    CreatedAt = p.CreatedAt,
+                    CategoryId = p.CategoryId,
+                    Category = new CategoryDTO
+                    {
+                        Name = p.Category.Name,
+                        ImageUrl = p.Category.ImageUrl
+                    },
+                    ProductImages = p.ProductImages.Select(img => new ProductImageDTO
+                    {
+                        Image = img.Image
+                    }).ToList()
+                })
+                .ToListAsync();
+
+            return new PaginationDTO
+            {
+                Items = products,
+                TotalPages = totalPages,
+                CurrentPage = page
+            };
         }
     }
 }

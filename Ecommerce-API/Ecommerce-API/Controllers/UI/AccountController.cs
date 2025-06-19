@@ -170,7 +170,6 @@ namespace Ecommerce_API.Controllers.UI
 </body>
 </html>
 ", "text/html");
-
         }
 
 

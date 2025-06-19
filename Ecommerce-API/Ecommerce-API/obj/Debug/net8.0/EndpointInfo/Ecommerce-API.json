@@ -211,7 +211,7 @@
         }
       }
     },
-    "/api/Basket/UI/GetBasket/{buyerId}": {
+    "/api/Basket/{buyerId}": {
       "get": {
         "tags": [
           "Basket"
@@ -228,29 +228,10 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Basket"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Basket"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Basket"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
-      }
-    },
-    "/api/Basket/UI/AddItem": {
+      },
       "post": {
         "tags": [
           "Basket"
@@ -258,7 +239,8 @@
         "parameters": [
           {
             "name": "buyerId",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -268,46 +250,29 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BasketItem"
+                "$ref": "#/components/schemas/BasketItemCreateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/BasketItem"
+                "$ref": "#/components/schemas/BasketItemCreateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/BasketItem"
+                "$ref": "#/components/schemas/BasketItemCreateDto"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Basket"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Basket"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Basket"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
     },
-    "/api/Basket/UI/RemoveItem/{buyerId}/items/{productId}": {
+    "/api/Basket/{buyerId}/{productId}": {
       "delete": {
         "tags": [
           "Basket"
@@ -333,24 +298,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Basket"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Basket"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Basket"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -794,6 +742,59 @@
         }
       }
     },
+    "/api/Product/UI/GetWithPagination": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "brands",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categories",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Product/Admin/Create": {
       "post": {
         "tags": [
@@ -1188,6 +1189,197 @@
         }
       }
     },
+    "/api/ProductSlider/UI/GetAll": {
+      "get": {
+        "tags": [
+          "ProductSlider"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProductSlider/UI/GetById/{id}": {
+      "get": {
+        "tags": [
+          "ProductSlider"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProductSlider/Admin/Create": {
+      "post": {
+        "tags": [
+          "ProductSlider"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Desc": {
+                    "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ProductId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ButtonUrl": {
+                    "type": "string"
+                  },
+                  "ButtonText": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Name": {
+                  "style": "form"
+                },
+                "Desc": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ProductId": {
+                  "style": "form"
+                },
+                "ButtonUrl": {
+                  "style": "form"
+                },
+                "ButtonText": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProductSlider/Admin/Update": {
+      "put": {
+        "tags": [
+          "ProductSlider"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Desc": {
+                    "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ProductId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ButtonUrl": {
+                    "type": "string"
+                  },
+                  "ButtonText": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Desc": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ProductId": {
+                  "style": "form"
+                },
+                "ButtonUrl": {
+                  "style": "form"
+                },
+                "ButtonText": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProductSlider/Admin/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "ProductSlider"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Slider/UI/GetAll": {
       "get": {
         "tags": [
@@ -1368,54 +1560,20 @@
   },
   "components": {
     "schemas": {
-      "Basket": {
+      "BasketItemCreateDto": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BasketItem"
-            },
-            "nullable": true
-          },
-          "buyerId": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "BasketItem": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "productId": {
             "type": "integer",
             "format": "int32"
           },
-          "image": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
+          "productName": {
             "type": "string",
             "nullable": true
           },
           "price": {
             "type": "number",
             "format": "double"
-          },
-          "discountedPrice": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
           },
           "quantity": {
             "type": "integer",

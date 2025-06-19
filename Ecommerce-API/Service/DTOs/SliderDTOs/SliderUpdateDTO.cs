@@ -15,5 +15,6 @@ namespace Service.DTOs.SliderDTOs
         public IFormFile? ImageFile { get; set; }
         public string? ButtonText { get; set; }
         public string? ButtonUrl { get; set; }
+
     }
 }

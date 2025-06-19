@@ -19,6 +19,8 @@ namespace Service
             services.AddScoped<IDiscountService, DiscountService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<ISliderService, SliderService>();
+            services.AddScoped<IProductSliderService, ProductSliderService>();
+
             return services;
         }
     }

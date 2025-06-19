@@ -37,6 +37,5 @@ namespace Repository.Repositories
                 .ThenInclude(mbox => mbox.Discount)
                 .FirstOrDefaultAsync(mbox=>mbox.Id == id);
         }
-
     }
 }

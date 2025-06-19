@@ -3,10 +3,12 @@ import './Category.scss';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from '../../api/axios';
+import { useNavigate } from "react-router-dom";
 
 const Category = () => {
     const scrollRef = useRef(null);
     const [categories, setCategories] = useState([]);
+    const navigate = useNavigate();
 
     const scroll = (direction) => {
         const { current } = scrollRef;
@@ -59,6 +61,7 @@ const Category = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0.2 }}
                                     transition={{ duration: 0.4 }}
+                                    onClick={() => navigate(`/shop?category=${category.name.toLowerCase()}`)}
                                 >
                                     {category.imageUrl?.trim() && (
                                         <img src={`https://localhost:7279/${category.imageUrl}`} />

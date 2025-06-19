@@ -19,5 +19,6 @@ namespace Service.Services.Interfaces
         Task<ProductDTO> GetByIdAsync(int id);
         Task<ProductDTO> GetByIdWithIncludeAsync(int id);
         Task<IEnumerable<ProductDTO>> GetAllWithInclude();
+        Task<PaginationDTO> GetWithPagination(int page = 1, int pageSize = 6, string sort = null, string brands = null,string categories= null);
     }
 }

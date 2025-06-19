@@ -1,72 +1,81 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
-using Service.Services.Interfaces;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Repository.Data;
+using Service.DTOs.BasketDTOs;
 
-namespace Ecommerce_API.Controllers.UI
+[ApiController]
+[Route("api/[controller]")]
+public class BasketController : ControllerBase
 {
-    public class BasketController : UIController
+    private readonly AppDbContext _context;
+
+    public BasketController(AppDbContext context)
     {
-        private static readonly Dictionary<string, Basket> Baskets = new();
-        private readonly IDiscountService _discountService;
-        public BasketController(IDiscountService discountService)
+        _context = context;
+    }
+
+    [HttpGet("{buyerId}")]
+    public async Task<IActionResult> GetBasket(string buyerId)
+    {
+        var basket = await _context.Baskets
+            .Include(b => b.Items)
+            .FirstOrDefaultAsync(b => b.BuyerId == buyerId);
+
+        return basket == null ? NotFound() : Ok(basket);
+    }
+
+    [HttpPost("{buyerId}")]
+    public async Task<IActionResult> AddItem(string buyerId, [FromBody] BasketItemCreateDto itemDto)
+    {
+        var basket = await _context.Baskets
+            .Include(b => b.Items)
+            .FirstOrDefaultAsync(b => b.BuyerId == buyerId);
+
+        if (basket == null)
         {
-            _discountService = discountService;
+            basket = new Basket { BuyerId = buyerId };
+            _context.Baskets.Add(basket);
         }
 
-        [HttpGet("{buyerId}")]
-        public ActionResult<Basket> GetBasket(string buyerId)
+        var existingItem = basket.Items.FirstOrDefault(i => i.ProductId == itemDto.ProductId);
+        if (existingItem != null)
         {
-            if (Baskets.TryGetValue(buyerId, out var basket))
-                return Ok(basket);
-
-            return NotFound();
+            existingItem.Quantity += itemDto.Quantity;
+        }
+        else
+        {
+            var item = new BasketItem
+            {
+                ProductId = itemDto.ProductId,
+                ProductName = itemDto.ProductName,
+                Price = itemDto.Price,
+                Quantity = itemDto.Quantity,
+                Basket = basket
+            };
+            basket.Items.Add(item);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Basket>> AddItem(string buyerId, BasketItem item)
-        {
-            if (!Baskets.TryGetValue(buyerId, out var basket))
-            {
-                basket = new Basket { BuyerId = buyerId };
-                Baskets[buyerId] = basket;
-            }
-
-            var discount = await _discountService.GetByProductIdAsync(item.ProductId);
-            if (discount != null)
-            {
-                item.DiscountedPrice = item.Price - (item.Price * discount.DiscountPercentage / 100);
-            }
-            else
-            {
-                item.DiscountedPrice = null;
-            }
-
-            var existing = basket.Items.FirstOrDefault(x => x.ProductId == item.ProductId);
-            if (existing != null)
-            {
-                existing.Quantity += item.Quantity;
-            }
-            else
-            {
-                basket.Items.Add(item);
-            }
-
-            return Ok(basket);
-        }
+        await _context.SaveChangesAsync();
+        return Ok(basket);
+    }
 
 
-        [HttpDelete("{buyerId}/items/{productId}")]
-        public ActionResult<Basket> RemoveItem(string buyerId, int productId)
-        {
-            if (!Baskets.TryGetValue(buyerId, out var basket))
-                return NotFound();
+    [HttpDelete("{buyerId}/{productId}")]
+    public async Task<IActionResult> RemoveItem(string buyerId, int productId)
+    {
+        var basket = await _context.Baskets
+            .Include(b => b.Items)
+            .FirstOrDefaultAsync(b => b.BuyerId == buyerId);
 
-            var item = basket.Items.FirstOrDefault(x => x.ProductId == productId);
-            if (item != null)
-                basket.Items.Remove(item);
+        if (basket == null) return NotFound();
 
-            return Ok(basket);
-        }
+        var item = basket.Items.FirstOrDefault(i => i.ProductId == productId);
+        if (item == null) return NotFound();
+
+        basket.Items.Remove(item);
+        await _context.SaveChangesAsync();
+
+        return Ok(basket);
     }
 }

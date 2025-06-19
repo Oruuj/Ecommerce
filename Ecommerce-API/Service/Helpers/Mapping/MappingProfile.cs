@@ -5,6 +5,7 @@ using Service.DTOs.CategoryDTOs;
 using Service.DTOs.DiscountDTOs;
 using Service.DTOs.ProductDTOs;
 using Service.DTOs.ProductFeatureDTOs;
+using Service.DTOs.ProductSliderDTOs;
 using Service.DTOs.SliderDTOs;
 using System;
 using System.Collections.Generic;
@@ -48,9 +49,12 @@ namespace Service.Helpers.Mapping
             CreateMap<DiscountProduct, DiscountDTO>()
             .ForMember(dest => dest.DiscountPercentage, opt => opt.MapFrom(src => src.Discount.DiscountPercentage))
             .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.Discount.EndDate))
-            .ForMember(dest => dest.StartDate, opt => opt.MapFrom(src => src.Discount.StartDate));
-            CreateMap<ProductImage, ProductImageDTO>();
+            .ForMember(dest => dest.StartDate, opt => opt.MapFrom(src => src.Discount.StartDate)).ReverseMap();
+            CreateMap<ProductImage, ProductImageDTO>().ReverseMap();
 
+            CreateMap<ProductSlider, ProductSliderCreateDTO>().ReverseMap();
+            CreateMap<ProductSlider, ProductSliderUpdateDTO>().ReverseMap();
+            CreateMap<ProductSlider, ProductSliderDTO>().ReverseMap();
 
 
         }

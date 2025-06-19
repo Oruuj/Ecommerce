@@ -21,5 +21,7 @@ namespace Repository.Data
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<ProductSlider> ProductSliders { get; set; }
+
     }
 }
