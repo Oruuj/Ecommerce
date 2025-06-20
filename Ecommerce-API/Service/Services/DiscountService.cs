@@ -18,8 +18,8 @@ namespace Service.Services
     {
         private IDiscountRepository _repository;
         private readonly IMapper _mapper;
-        private readonly ILogger<Discount> _logger;
-        public DiscountService(IDiscountRepository repository, IMapper mapper, ILogger<Discount> logger)
+        private readonly ILogger<DiscountService> _logger;
+        public DiscountService(IDiscountRepository repository, IMapper mapper, ILogger<DiscountService> logger)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

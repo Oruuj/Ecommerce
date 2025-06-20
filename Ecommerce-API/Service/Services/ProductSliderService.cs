@@ -137,7 +137,11 @@ namespace Service.Services
 
                 slider.ImageUrl = Path.Combine("images", filename).Replace("\\", "/");
             }
-            await _repository.UpdateAsync(slider);
+            else
+            {
+                slider.ImageUrl = slider.ImageUrl;
+            }
+                await _repository.UpdateAsync(slider);
             _logger.LogInformation($"Product slider with ID {entity.Id} updated successfully.");
             return new CreateResponse
             {

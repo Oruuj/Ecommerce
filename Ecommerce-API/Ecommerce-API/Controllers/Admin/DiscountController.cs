@@ -13,7 +13,7 @@ namespace Ecommerce_API.Controllers.Admin
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromQuery] DiscountCreateDTO entity)
+        public async Task<IActionResult> CreateAsync([FromBody] DiscountCreateDTO entity)
         {
             if (entity == null)
             {
@@ -27,7 +27,7 @@ namespace Ecommerce_API.Controllers.Admin
             return Ok(response);
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateAsync([FromQuery] DiscountUpdateDTO entity)
+        public async Task<IActionResult> UpdateAsync([FromBody] DiscountUpdateDTO entity)
         {
             if (entity == null)
             {
@@ -54,13 +54,14 @@ namespace Ecommerce_API.Controllers.Admin
             return Ok(products);
         }
         [HttpPost]
-        public async Task<IActionResult> AddtoProduct([FromQuery] DiscountAddDTO entity)
+        public async Task<IActionResult> AddtoProduct([FromBody] DiscountAddDTO entity)
         {
             if (entity.DiscountId <= 0 || entity.ProductId <= 0)
             {
                 return BadRequest("Invalid discount or product ID.");
             }
-            return Ok(await _discountService.AddToProduct(entity));
+            var responese = await _discountService.AddToProduct(entity);
+            return Ok(responese);
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id) => Ok(await _discountService.DeleteAsync(id));

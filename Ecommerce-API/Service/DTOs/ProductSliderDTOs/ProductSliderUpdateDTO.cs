@@ -10,11 +10,11 @@ namespace Service.DTOs.ProductSliderDTOs
     public class ProductSliderUpdateDTO
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Desc { get; set; }
-        public IFormFile ImageFile { get; set; }
+        public string? Name { get; set; }
+        public string? Desc { get; set; }
+        public IFormFile? ImageFile { get; set; }
         public int? ProductId { get; set; }
-        public string ButtonUrl { get; set; }
-        public string ButtonText { get; set; }
+        public string? ButtonUrl { get; set; }
+        public string? ButtonText { get; set; }
     }
 }

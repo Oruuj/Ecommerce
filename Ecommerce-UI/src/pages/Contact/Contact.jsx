@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/footer";
 import Direction from "../../components/Directory/directory";
@@ -7,8 +7,26 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { MdOutlinePhone } from "react-icons/md";
 import { LuMailMinus } from "react-icons/lu";
 import "./Contact.scss";
+import axios from '../../api/axios';
 
 const Contact = () => {
+
+
+  const [settings, setSettings] = useState({});
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await axios.get('/api/Setting/UI/GetAll');
+        setSettings(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchSettings();
+  }, []);
+
+
   return (
     <>
       <header>
@@ -39,21 +57,22 @@ const Contact = () => {
               <span className="little-title">How can we help you? </span>
               <span className="title font-semibold text-3xl">Contact us</span>
               <p>
-                We’re here to help and answer any questions you might have. We
-                look forward to hearing from you!
+                {settings?.contactmessage}
               </p>
               <div className="contacts flex flex-col justify-between">
                 <div className="contact">
                   <MdOutlineLocationOn />
-                  <span>Address 123</span>
+                  <span>                {settings?.Address}</span>
                 </div>
                 <div className="contact">
                   <MdOutlinePhone />
-                  <span>+45 71 99 77 07</span>
+                  <span>                {settings?.phone}
+                  </span>
                 </div>
                 <div className="contact">
                   <LuMailMinus />
-                  <span className="mail">mail@cyber.com</span>
+                  <span className="mail">                {settings?.email}
+                  </span>
                 </div>
               </div>
             </motion.div>

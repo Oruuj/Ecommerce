@@ -90,7 +90,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var frontendUrl = "http://localhost:5173";
-var frontendUrl2 = "http://localhost:3000";
+var frontendUrl2 = "http://localhost:5174";
+var frontendUrlAdmin = "http://localhost:3000";
 
 
 builder.Services.AddCors(options =>
@@ -98,6 +99,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy.WithOrigins(frontendUrl)
+                .WithOrigins(frontendUrlAdmin)
                 .WithOrigins(frontendUrl2)
               .AllowAnyHeader()
               .AllowAnyMethod();

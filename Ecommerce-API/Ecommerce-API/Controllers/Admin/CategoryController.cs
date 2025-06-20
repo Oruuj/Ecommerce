@@ -12,7 +12,7 @@ namespace Ecommerce_API.Controllers.Admin
             _categoryService = categoryService;
         }
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromQuery] int Id) => Ok(await _categoryService.DeleteAsync(Id));
+        public async Task<IActionResult> Delete([FromQuery]int Id) => Ok(await _categoryService.DeleteAsync(Id));
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CategoryCreateDTO entity) => Ok(await _categoryService.CreateAsync(entity));
         [HttpPut]

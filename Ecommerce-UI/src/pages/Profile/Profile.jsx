@@ -12,6 +12,7 @@ import Address from "../../components/Address/Address";
 import Payment from "../../components/Payment/Payment";
 import { Modal, Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
+import { toast } from 'react-toastify';
 
 const Profile = () => {
   const [SelectedMenu, SetSelectedMenu] = useState("mydetail");
@@ -32,14 +33,19 @@ const Profile = () => {
   };
 
   const [profile, setProfile] = useState(null);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+
   useEffect(() => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem("token");
-        console.log("Token:", token);
-        const response = await axios.get("/api/Account/UI/GetProfile", { headers: { Authorization: `Bearer ${token}` } });
-        console.log("Profile response:", response.data);
+        const response = await axios.get("/api/Account/UI/GetProfile", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         setProfile(response.data);
+        setFullName(response.data.fullName);
+        setEmail(response.data.email);
       } catch (error) {
         console.error("Error fetching profile:", error);
       }
@@ -47,52 +53,50 @@ const Profile = () => {
     fetchProfile();
   }, []);
 
+  const handleUpdateProfile = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      await axios.put(
+        "/api/Account/UI/UpdateProfile",
+        { fullName, email },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      toast.success("Profile updated successfully.");
+    } catch (error) {
+      console.error("Update failed:", error);
+      toast.error("Failed to update profile.");
+    }
+  };
+
   return (
     <>
-      <header>
-        <Header />
-      </header>
+      <header><Header /></header>
       <main>
         <div className="container-profile">
           <section id="sidebar">
             <div className="profile">
-              <div className="img">
-                <img src={userimg} />
-              </div>
+              <div className="img"><img src={userimg} /></div>
               <div className="user-name">
                 <span>Hi, </span>
                 <span className="font-semibold text-2xl">{profile?.fullName || "Loading..."}</span>
-
               </div>
             </div>
             <div className="options">
-              <div
-                className="option"
-                onClick={() => SetSelectedMenu("mydetail")}
-              >
-                <BiSolidUserDetail />
-                <a>My detail</a>
+              <div className="option" onClick={() => SetSelectedMenu("mydetail")}>
+                <BiSolidUserDetail /><a>My detail</a>
               </div>
-              <div
-                className="option"
-                onClick={() => SetSelectedMenu("address")}
-              >
-                <VscHome />
-                <a>Address Book</a>
+              <div className="option" onClick={() => SetSelectedMenu("address")}>
+                <VscHome /><a>Address Book</a>
               </div>
-              <div
-                className="option"
-                onClick={() => SetSelectedMenu("payment")}
-              >
-                <MdOutlinePayment />
-                <a>Payment Methods</a>
+              <div className="option" onClick={() => SetSelectedMenu("payment")}>
+                <MdOutlinePayment /><a>Payment Methods</a>
               </div>
               <div className="option">
-                <RiLogoutBoxLine />
-                <a>Sing out</a>
+                <RiLogoutBoxLine /><a>Sign out</a>
               </div>
             </div>
           </section>
+
           <section id="content">
             <AnimatePresence mode="wait">
               {SelectedMenu === "mydetail" && (
@@ -109,7 +113,8 @@ const Profile = () => {
                     <input
                       id="fullName"
                       type="text"
-                      placeholder={profile?.fullName || "Loading..."}
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
                     />
                   </div>
                   <div className="form">
@@ -117,12 +122,16 @@ const Profile = () => {
                     <input
                       id="email"
                       type="email"
-                      placeholder={profile?.email || "Loading..."}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
-                  <button className="btn-apply">Apply</button>
+                  <button className="btn-apply" onClick={handleUpdateProfile}>
+                    Apply
+                  </button>
                 </motion.div>
               )}
+
               {SelectedMenu === "address" && (
                 <motion.div
                   key="address"
@@ -134,24 +143,18 @@ const Profile = () => {
                 >
                   <div className="title">
                     <span className="font-semibold text-2xl">Address Book</span>
-                    <button
-                      className="btn-address"
-                      onClick={() => setOpenModal(true)}
-                    >
+                    <button className="btn-address" onClick={() => setOpenModal(true)}>
                       Add Address
                     </button>
                   </div>
                   <div className="Addresses">
                     <div className="addresse grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-7 mt-6 items-center">
                       <Address name="Home" address="Gara Garayev 73" />
-                      <Address name="Home" address="Gara Garayev 73" />
-                      <Address name="Home" address="Gara Garayev 73" />
-                      <Address name="Home" address="Gara Garayev 73" />
-                      <Address name="Home" address="Gara Garayev 73" />
                     </div>
                   </div>
                 </motion.div>
               )}
+
               {SelectedMenu === "payment" && (
                 <motion.div
                   key="payment"
@@ -162,23 +165,14 @@ const Profile = () => {
                   transition={{ type: "tween", duration: 0.3 }}
                 >
                   <div className="title">
-                    <span className="font-semibold text-2xl">
-                      Payment Method
-                    </span>
-                    <button
-                      className="btn-address"
-                      onClick={() => setPaymentOpenModal(true)}
-                    >
+                    <span className="font-semibold text-2xl">Payment Method</span>
+                    <button className="btn-address" onClick={() => setPaymentOpenModal(true)}>
                       Add Payment Method
                     </button>
                   </div>
                   <div className="Addresses">
                     <div className="addresse grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-7 mt-6 items-center">
-                      <Payment
-                        name="Card"
-                        address="43698214741"
-                        ValidDate="07 / 26"
-                      />
+                      <Payment name="Card" address="43698214741" ValidDate="07 / 26" />
                     </div>
                   </div>
                 </motion.div>
@@ -186,109 +180,33 @@ const Profile = () => {
             </AnimatePresence>
           </section>
         </div>
+
         <Modal open={openModal} onClose={() => setOpenModal(false)}>
           <Box sx={style}>
-            <Typography variant="h6" component="h2" gutterBottom>
-              Add a New Address
-            </Typography>
-            <input
-              type="text"
-              placeholder="Enter address Name"
-              style={{
-                width: "100%",
-                padding: "8px",
-                marginBottom: "1rem",
-                outline: "none",
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Enter address"
-              style={{
-                width: "100%",
-                padding: "8px",
-                marginBottom: "1rem",
-                outline: "none",
-              }}
-            />
+            <Typography variant="h6">Add a New Address</Typography>
+            <input type="text" placeholder="Enter address Name" style={{ width: "100%", padding: "8px", marginBottom: "1rem" }} />
+            <input type="text" placeholder="Enter address" style={{ width: "100%", padding: "8px", marginBottom: "1rem" }} />
             <div className="flex items-start gap-5">
-              <Button
-                variant="contained"
-                onClick={() => setOpenModal(false)}
-                style={{ backgroundColor: "black", borderRadius: 12 }}
-              >
-                Save
-              </Button>
-              <Button
-                variant="contained"
-                onClick={() => setOpenModal(false)}
-                style={{ backgroundColor: "black", borderRadius: 12 }}
-              >
-                Close
-              </Button>
+              <Button variant="contained" onClick={() => setOpenModal(false)} style={{ backgroundColor: "black", borderRadius: 12 }}>Save</Button>
+              <Button variant="contained" onClick={() => setOpenModal(false)} style={{ backgroundColor: "black", borderRadius: 12 }}>Close</Button>
             </div>
           </Box>
         </Modal>
-        <Modal
-          open={openPaymentModal}
-          onClose={() => setPaymentOpenModal(false)}
-        >
+
+        <Modal open={openPaymentModal} onClose={() => setPaymentOpenModal(false)}>
           <Box sx={style}>
-            <Typography variant="h6" component="h2" gutterBottom>
-              Add a New Payment
-            </Typography>
-            <input
-              type="text"
-              placeholder="Enter Card Number"
-              style={{
-                width: "100%",
-                padding: "8px",
-                marginBottom: "1rem",
-                outline: "none",
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Enter Expire Date"
-              style={{
-                width: "100%",
-                padding: "8px",
-                marginBottom: "1rem",
-                outline: "none",
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Enter CVV"
-              style={{
-                width: "100%",
-                padding: "8px",
-                marginBottom: "1rem",
-                outline: "none",
-              }}
-            />
+            <Typography variant="h6">Add a New Payment</Typography>
+            <input type="text" placeholder="Enter Card Number" style={{ width: "100%", padding: "8px", marginBottom: "1rem" }} />
+            <input type="text" placeholder="Enter Expire Date" style={{ width: "100%", padding: "8px", marginBottom: "1rem" }} />
+            <input type="text" placeholder="Enter CVV" style={{ width: "100%", padding: "8px", marginBottom: "1rem" }} />
             <div className="flex items-start gap-5">
-              <Button
-                variant="contained"
-                onClick={() => setPaymentOpenModal(false)}
-                style={{ backgroundColor: "black", borderRadius: 12 }}
-              >
-                Save
-              </Button>
-              <Button
-                variant="contained"
-                onClick={() => setPaymentOpenModal(false)}
-                style={{ backgroundColor: "black", borderRadius: 12 }}
-              >
-                Close
-              </Button>
+              <Button variant="contained" onClick={() => setPaymentOpenModal(false)} style={{ backgroundColor: "black", borderRadius: 12 }}>Save</Button>
+              <Button variant="contained" onClick={() => setPaymentOpenModal(false)} style={{ backgroundColor: "black", borderRadius: 12 }}>Close</Button>
             </div>
           </Box>
         </Modal>
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <footer><Footer /></footer>
     </>
   );
 };

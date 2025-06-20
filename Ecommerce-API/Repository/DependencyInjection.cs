@@ -20,6 +20,7 @@ namespace Repository
             services.AddScoped<IDiscountRepository, DiscountRepository>();
             services.AddScoped<ISliderRepository, SliderRepository>();
             services.AddScoped<IProductSliderRespository, ProductSliderRespository>();
+            services.AddScoped<ISettingRepository, SettingRepository>();
 
             return services;
         }

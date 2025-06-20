@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
-
+import { ToastContainer } from 'react-toastify';
 import HomePage from "./pages/Home/HomePage";
 import ShopPage from "./pages/Shop/ShopPage";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
@@ -78,6 +78,7 @@ function App() {
     <BrowserRouter>
       <BasketProvider>
         <AnimatedRoutes />
+        <ToastContainer position="top-right" autoClose={3000} />
       </BasketProvider>
     </BrowserRouter>
   );

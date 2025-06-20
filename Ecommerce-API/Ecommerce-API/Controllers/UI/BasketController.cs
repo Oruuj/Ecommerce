@@ -51,7 +51,8 @@ public class BasketController : ControllerBase
                 ProductName = itemDto.ProductName,
                 Price = itemDto.Price,
                 Quantity = itemDto.Quantity,
-                Basket = basket
+                Basket = basket,
+                Image=itemDto.Image
             };
             basket.Items.Add(item);
         }
@@ -78,4 +79,29 @@ public class BasketController : ControllerBase
 
         return Ok(basket);
     }
+    [HttpPut("{buyerId}/{productId}")]
+    public async Task<IActionResult> UpdateItemQuantity(string buyerId, int productId, [FromBody] int quantity)
+    {
+        var basket = await _context.Baskets
+            .Include(b => b.Items)
+            .FirstOrDefaultAsync(b => b.BuyerId == buyerId);
+
+        if (basket == null) return NotFound();
+
+        var item = basket.Items.FirstOrDefault(i => i.ProductId == productId);
+        if (item == null) return NotFound();
+
+        if (quantity <= 0)
+        {
+            basket.Items.Remove(item);
+        }
+        else
+        {
+            item.Quantity = quantity;
+        }
+
+        await _context.SaveChangesAsync();
+        return Ok(basket);
+    }
+
 }

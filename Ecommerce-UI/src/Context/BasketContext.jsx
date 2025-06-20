@@ -20,9 +20,23 @@ export const BasketProvider = ({ children }) => {
     await axios.delete(`/api/basket/${buyerId}/${productId}`);
     fetchBasket(buyerId);
   };
+  const updateItemQuantity = async (buyerId, productId, newQuantity) => {
+    try {
+      const res = await axios.put(
+        `/api/basket/${buyerId}/${productId}`,
+        JSON.stringify(newQuantity),
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+      setBasket(res.data);
+    } catch (error) {
+      console.error("Failed to update item quantity", error);
+    }
+  };
+
+
 
   return (
-    <BasketContext.Provider value={{ basket, fetchBasket, addItem, removeItem }}>
+    <BasketContext.Provider value={{ basket, fetchBasket, addItem, removeItem, updateItemQuantity }}>
       {children}
     </BasketContext.Provider>
   );

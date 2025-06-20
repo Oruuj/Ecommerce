@@ -96,7 +96,7 @@ namespace Service.Services
                 };
             }
 
-            existingCategory.Name = entity.Name;
+            existingCategory.Name = entity.Name ?? existingCategory.Name;
 
             if (entity.ImageFile != null && entity.ImageFile.Length > 0)
             {
@@ -115,6 +115,10 @@ namespace Service.Services
                 }
 
                 existingCategory.ImageUrl = Path.Combine("images", filename).Replace("\\", "/");
+            }
+            else
+            {
+                existingCategory.ImageUrl = existingCategory.ImageUrl;
             }
 
             await _repository.UpdateAsync(existingCategory);

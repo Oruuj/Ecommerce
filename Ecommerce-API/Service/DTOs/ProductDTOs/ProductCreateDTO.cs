@@ -17,7 +17,7 @@ namespace Service.DTOs.ProductDTOs
         public string Brand { get; set; }
         public int StockQuantity { get; set; }
         public int CategoryId { get; set; }
-        public List<ProductFeatureCreateDTO> ProductFeatures { get; set; }
+        public List<ProductFeatureCreateDTO>? ProductFeatures { get; set; }
         public List<DiscountProduct>? DiscountProducts { get; set; }
         public List<IFormFile> Images { get; set; }
     }

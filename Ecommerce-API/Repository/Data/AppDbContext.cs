@@ -22,6 +22,6 @@ namespace Repository.Data
         public DbSet<BasketItem> BasketItems { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<ProductSlider> ProductSliders { get; set; }
-
+        public DbSet<Setting> Settings { get; set; }
     }
 }

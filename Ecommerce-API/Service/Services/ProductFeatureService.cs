@@ -106,22 +106,7 @@ namespace Service.Services
 
             productFeature.Name = entity.Name ?? productFeature.Name;
             productFeature.Value = entity.Value ?? productFeature.Value;
-
-            if (entity.ProductId.HasValue && entity.ProductId.Value > 0)
-            {
-                var productExists = await _productRepository.GetByIdAsync(entity.ProductId.Value);
-                if (productExists==null)
-                {
-                    return new CreateResponse
-                    {
-                        StatusCode = 400,
-                        Message = $"Product with ID {entity.ProductId.Value} does not exist."
-                    };
-                }
-
-                productFeature.ProductId = entity.ProductId.Value;
-            }
-
+            productFeature.ProductId = entity.ProductId.Value;
             await _repository.UpdateAsync(productFeature);
             _logger.LogInformation($"Product feature with ID {entity.Id} updated successfully.");
 

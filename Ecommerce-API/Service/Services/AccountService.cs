@@ -71,6 +71,7 @@ namespace Service.Services
                     FullName = user.FullName,
                     UserName = user.UserName,
                     Email = user.Email,
+                    Id=user.Id,
                     Roles = userRoles.ToArray()
                 });
             }
@@ -93,7 +94,8 @@ namespace Service.Services
                     {
                         FullName = m.FullName,
                         Email = m.Email,
-                        UserName = m.UserName
+                        UserName = m.UserName,
+                        Id = m.Id,
                     }).ToArray()
                 });
             }
@@ -148,7 +150,7 @@ namespace Service.Services
             if (user == null)
                 throw new NullReferenceException("No User Found");
 
-            var role = await _roleManager.FindByIdAsync(RoleId);
+            var role = await _roleManager.FindByNameAsync(RoleId);
             if (role == null)
                 throw new NullReferenceException("No Role Found");
             await _userManager.AddToRoleAsync(user, role.ToString());
@@ -159,13 +161,13 @@ namespace Service.Services
             var user = await _userManager.FindByIdAsync(UserId);
             if (user == null)
                 throw new NullReferenceException("No User Found");
-            var role = await _roleManager.FindByIdAsync(RoleId);
+            var role = await _roleManager.FindByNameAsync(RoleId);
             if (role == null)
                 throw new NullReferenceException("No Role Found");
             var roles = await _userManager.GetRolesAsync(user);
             if (roles.Count <= 1)
                 throw new Exception("A user must have at least one role");
-            if (role.ToString().ToLower() == "member")
+            if (role.ToString().ToLower() == "user")
                 throw new Exception("Can't remove member role");
             await _userManager.RemoveFromRoleAsync(user, role.ToString());
             return new CreateResponse { StatusCode = 200, Message = "Role removed successfully" };

@@ -6,6 +6,7 @@ using Service.DTOs.DiscountDTOs;
 using Service.DTOs.ProductDTOs;
 using Service.DTOs.ProductFeatureDTOs;
 using Service.DTOs.ProductSliderDTOs;
+using Service.DTOs.SettingDTOs;
 using Service.DTOs.SliderDTOs;
 using System;
 using System.Collections.Generic;
@@ -56,6 +57,9 @@ namespace Service.Helpers.Mapping
             CreateMap<ProductSlider, ProductSliderUpdateDTO>().ReverseMap();
             CreateMap<ProductSlider, ProductSliderDTO>().ReverseMap();
 
+            CreateMap<Setting, SettingCreateDTO>().ReverseMap();
+            CreateMap<Setting, SettingUpdateDTO>().ReverseMap();
+            CreateMap<Setting, SettingDTO>().ReverseMap();
 
         }
     }

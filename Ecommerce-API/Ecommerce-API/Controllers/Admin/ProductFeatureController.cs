@@ -12,9 +12,9 @@ namespace Ecommerce_API.Controllers.Admin
             _productFeatureService = productFeatureService;
         }
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] ProductFeatureCreateDTO entity) => Ok(await _productFeatureService.Create(entity));
-        [HttpPost]
-        public async Task<IActionResult> Update([FromForm] ProductFeatureUpdateDTO entity) => Ok(await _productFeatureService.UpdateAsync(entity));
+        public async Task<IActionResult> Create([FromQuery] ProductFeatureCreateDTO entity) => Ok(await _productFeatureService.Create(entity));
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] ProductFeatureUpdateDTO entity) => Ok(await _productFeatureService.UpdateAsync(entity));
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id) => Ok(await _productFeatureService.DeleteAsync(id));
     }
