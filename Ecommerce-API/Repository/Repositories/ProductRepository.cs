@@ -37,5 +37,12 @@ namespace Repository.Repositories
                 .ThenInclude(mbox => mbox.Discount)
                 .FirstOrDefaultAsync(mbox=>mbox.Id == id);
         }
+        public async Task<List<Product>> Search(string text)
+        {
+            return await _context.Products
+                .Where(p => p.Name.ToLower().Contains(text.Trim().ToLower()))
+                .ToListAsync();
+        }
+
     }
 }

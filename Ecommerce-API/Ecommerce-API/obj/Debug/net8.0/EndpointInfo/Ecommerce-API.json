@@ -842,6 +842,27 @@
         }
       }
     },
+    "/api/Product/UI/Search": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Product/Admin/Create": {
       "post": {
         "tags": [

@@ -259,5 +259,10 @@ namespace Service.Services
                 CurrentPage = page
             };
         }
+
+        public async Task<List<ProductDTO>> Search(string text)
+        {
+            return _mapper.Map<List<ProductDTO>>(await _repository.Search(text));
+        }
     }
 }

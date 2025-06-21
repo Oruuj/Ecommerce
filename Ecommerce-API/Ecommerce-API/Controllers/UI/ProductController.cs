@@ -26,5 +26,10 @@ namespace Ecommerce_API.Controllers.UI
         {
             return Ok(await _productService.GetWithPagination(page, pageSize, sort, brands, categories));
         }
+        [HttpGet]
+        public async Task<IActionResult> Search([FromQuery]string text)
+        {
+            return Ok(await _productService.Search(text));
+        }
     }
 }

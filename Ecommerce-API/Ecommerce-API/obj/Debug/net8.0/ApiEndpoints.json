@@ -667,6 +667,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Ecommerce_API.Controllers.UI.ProductController",
+    "Method": "Search",
+    "RelativePath": "api/Product/UI/Search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "text",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce_API.Controllers.Admin.ProductFeatureController",
     "Method": "Create",
     "RelativePath": "api/ProductFeature/Admin/Create",

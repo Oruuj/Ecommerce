@@ -11,5 +11,6 @@ namespace Repository.Repositories.Interfaces
     {
         Task<IEnumerable<Product>> GetAllWithInclude();
         Task<Product> GetByIdWithIncludeAsync(int id);
+        Task<List<Product>> Search(string text);
     }
 }
